@@ -1,0 +1,345 @@
+
+  @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap');
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    font-family: 'Raleway', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/*p {
+    color: rgb(85, 85, 85);
+}*/
+
+a, .btn {
+    transition: all 500ms ease;
+}
+
+nav, .nav_click {
+    display: flex;
+}
+
+nav {
+    justify-content: space-evenly;
+    align-items: center;
+    height: 17vh;
+    background-color: #91a8d0;
+    color: whitesmoke;
+}
+
+.gojo {
+    font-size: 30px;
+    font-weight: bolder;
+}
+
+#gif {
+    width: 25px;
+    height: 25px;
+    object-fit: cover;
+}
+
+.nav_click {
+    gap: 30px;
+    font-size: 20px;
+    list-style: none;
+}
+
+a {
+    color: whitesmoke;
+    text-decoration: none;
+    text-decoration-color: white;
+}
+
+a:hover{
+    color: #DCC68D;
+    text-decoration: underline;
+    text-underline-offset: 5px;
+}
+
+/* WELCOME SECTION */
+.welcome {
+    background-color: #ffdcdb;
+    overflow: hidden;
+    padding: 30px;
+}
+
+.intro {
+    margin-left: 13rem;
+    margin-right: 13rem;
+}
+
+.my_picture {
+    width: 200px; 
+    height: 200px;
+    border-radius: 20px;
+    object-fit: cover;
+    float: right;    
+}
+
+.buttons button {
+    transition: 0.3s ease;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 30px;
+    margin-left: 55px;
+    text-align: center;
+    font-size: 16px;
+    background-color: #91a8d0;
+    color: whitesmoke;
+    margin-top: 30px;
+
+}
+
+.buttons .interests {
+    margin-right: 20px;
+}
+
+.buttons .interests:hover {
+    background-color: #9E64E8;
+    transform: translateY(-5px);
+    box-shadow: 2px 2px 4px rgb(4, 0, 0);
+}
+
+.buttons .skills:hover {
+    background-color: #9E64E8;
+    transform: translateY(-5px);
+    box-shadow: 2px 2px 4px rgb(4, 0, 0);
+}
+
+.buttons .interests:hover .interest,
+.buttons .skills:hover .skill {
+    color: #ffdcdb;
+}
+
+/* ABOUT ME */
+
+/*
+.welcome {
+    background-color: #ffdcdb;
+    overflow: hidden;
+    padding: 30px;
+}
+
+.intro {
+    margin-left: 15rem;
+    margin-right: 15rem;
+}
+*/
+
+.about {
+    background-color: #b4c8ea;
+    overflow: hidden;
+    padding: 30px;
+}
+
+.about_me {
+    display: flex;
+    align-items: start;
+    text-align: right;
+    margin-left: 13rem;
+    margin-right: 13rem;
+}
+
+.about_me iframe{
+    margin-right: 20px;
+}
+
+.about_me_details {
+    text-align: left;
+}
+
+.about_me_details img {
+    width: 20px;
+    height: 20px;
+    object-fit: cover;
+}
+
+.favorites {
+    display: flex;
+    justify-content: space-between; 
+    margin: 0 13rem; 
+}
+
+.favorites_heading {
+    margin-left: 13rem; 
+}
+
+.favorite_item {
+    text-align: center;
+    margin-right: 20px; 
+}
+
+.favorite_image {
+    width: 150px;
+    height: 200px; 
+    object-fit: cover;
+    animation: faveAnimation 500ms ease-in-out infinite alternate;
+}
+
+@keyframes faveAnimation {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-5px);
+    }
+}
+
+
+
+
+/* INTERESTS AND SKILLS */
+.interests_skills {
+    background-color: #ffdcdb;
+    overflow: hidden;
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+.myInterests,
+.mySkills {
+    width: 30%; 
+    text-align: justify;
+}
+
+.myInterests {
+    margin-right: 15px;
+}
+
+.mySkills {
+    margin-left: 15px;
+}
+
+.myInterests h2, .mySkills h2 {
+    text-align: left;
+}
+
+.python, .c-sharp, .c-plus-plus {
+    padding: 20px;
+    width: 40px;
+    height: 40px;
+    align-self: center;
+    animation: skillAnimation 500ms ease-in-out infinite alternate;
+}
+
+@keyframes skillAnimation {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-5px);
+    }
+}
+
+.mySkills img {
+    width: 40px;
+    height: 40px;
+    margin: 0 5px; 
+}
+
+
+/* CONTACT SECTION */
+
+.contact_section {
+    display:flex;
+    background-color: #b4c8ea;
+    padding: 30px;
+}
+
+.contact_heading {
+    margin-left: 13.5rem;
+}
+
+.contact_div {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.contact_detail {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-left: 3rem;
+    margin-right: 5rem;
+    margin-top: 20px;
+}
+
+.contact_detail .contact_image {
+    align-self: center;
+}
+
+.contact_link {
+    text-decoration: none;
+    color: black;
+}
+
+.contact_link:hover {
+    text-decoration: none;
+    color: #9E64E8;
+}
+
+
+.contact_image {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    /*margin-right: 5px; */
+    animation: contactAnimation 500ms ease-in-out infinite alternate;
+}
+
+@keyframes contactAnimation {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-5px);
+    }
+}
+
+/* PROJECTS AND ACHIEVEMENTS */
+.projects_achievements {
+    background-color: #ffdcdb;
+    overflow: hidden;
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+.myProjects,
+.myAchievements {
+    width: 30%; 
+    text-align: justify;
+}
+
+.myProjects {
+    margin-right: 15px;
+}
+
+.myAchievements {
+    margin-left: 15px;
+}
+
+.myProjects h2, .myAchievements h2 {
+    text-align: left;
+}
+
+.figma, .python_certificate {
+    padding: 20px;
+    text-align: left;
+    text-decoration: none;
+    color: black;
+}
+
+.figma:hover, .python_certificate:hover {
+    text-decoration: none;
+    color: #9E64E8;
+}
