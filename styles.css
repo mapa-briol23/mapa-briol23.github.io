@@ -348,6 +348,7 @@ nav {
 .interest_and_skill {
     display: flex;
     flex-direction: row;
+    align-content: center;
 }
 
 .myInterests,
