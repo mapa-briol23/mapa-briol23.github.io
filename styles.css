@@ -19,7 +19,16 @@ html {
     color: rgb(85, 85, 85);
 }*/
 
-a, .btn {
+a, .btn, .gojo, #gif,
+.greetings, .aboutme,
+.favorites-heading,
+.contact_main_text,
+.interest-skill,
+.interest, .skill,
+.contact_heading,
+.project-achievement,
+.project_heading,
+.achievement_heading {
     transition: all 500ms ease;
 }
 
@@ -31,7 +40,7 @@ nav {
     justify-content: space-evenly;
     align-items: center;
     height: 15vh;
-    background-color: #91a8d0;
+    background-color: #778da9;
     color: whitesmoke;
 }
 
@@ -40,10 +49,24 @@ nav {
     font-weight: bolder;
 }
 
+.gojo:hover {
+    color: #393d3f;
+    font-size: 35px;
+    font-weight: 900;
+    cursor: pointer;
+}
+
 #gif {
     width: 25px;
     height: 25px;
     object-fit: cover;
+}
+
+#gif:hover {
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+    cursor: pointer;
 }
 
 .nav_click {
@@ -59,36 +82,78 @@ nav {
 }
 
 .nav_click a:hover{
-    color: #DCC68D;
+    color: #393d3f;
     text-decoration: none;
     font-size: larger;
     font-weight: bold;
 }
 
+
 /* WELCOME SECTION */
+
 .welcome {
-    background-color: #ffdcdb;
+    background-color: #e0e1dd;
     overflow: hidden;
     padding: 30px;
     height: 85vh;
 }
 
 .intro {
-    margin-top: 140px;
+    margin-top: 100px;
     margin-left: 13rem;
     margin-right: 13rem;
+}
+
+.greetings {
+    color: #393d3f;
+    font-size: 40px;
+}
+
+.greetings:hover {
+    font-size: 60px;
+    font-weight: 900;
+    cursor: pointer;
+}
+
+.intro hr {
+    border-top: 5px solid #62929e;
+}
+
+.picture-div {
+    float: left;
 }
 
 .my_picture {
     width: 200px; 
     height: 200px;
-    border-radius: 20px;
+    border-radius: 40px;
     object-fit: cover;
-    float: right;    
+    box-shadow: 2px 2px 4px rgb(4, 0, 0);
+    text-decoration: none;
+    margin-right: 50px;
+}
+
+.my_picture:hover {
+    cursor: pointer;
+    animation: pictureAnimation 1500ms ease-in-out infinite alternate;
+}
+
+@keyframes pictureAnimation {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-5px);
+    }
+}
+
+.intro_paragraph {
+    margin-left: 100px;
+    margin-top: 50px;
 }
 
 .buttons {
-    margin-top: 30px;
+    margin-top: 10px;
 }
 
 .buttons a {
@@ -105,58 +170,65 @@ nav {
 
 }
 
-.buttons .interests {
-    margin-right: 20px;
-}
-
-.buttons .interests:hover {
-    background-color: #9E64E8;
-    transform: translateY(-5px);
-    box-shadow: 2px 2px 4px rgb(4, 0, 0);
+.interest_skill_button {
+    display: inline-block; 
+    font-size: 16px;
+    cursor: pointer;
     text-decoration: none;
+    color: #fff;
+    background-color: #007bff;
+    border: 1px solid #007bff;
+    border-radius: 5px;
 }
 
-.buttons .skills:hover {
-    background-color: #9E64E8;
-    transform: translateY(-5px);
+.interest_skill_button:hover {
+    background-color: #393d3f;
     box-shadow: 2px 2px 4px rgb(4, 0, 0);
-    text-decoration: none;
 }
 
-.buttons .interests:hover .interest,
-.buttons .skills:hover .skill {
-    color: #ffdcdb;
-}
 
 /* ABOUT ME */
 
-/*
-.welcome {
-    background-color: #ffdcdb;
-    overflow: hidden;
-    padding: 30px;
-}
-
-.intro {
-    margin-left: 15rem;
-    margin-right: 15rem;
-}
-*/
-
 .about {
-    background-color: #b4c8ea;
+    background-color: #778da9;
     overflow: hidden;
     padding: 30px;
-    height: 100vh;
+    height: 115vh;
+    color: #dee2e6
+}
+
+.about_heading {
+    margin-left: 13rem;
+    margin-right: 13rem;
+    margin-top: 20px;
+    color: #dee2e6;
+}
+
+.favorites_heading hr {
+    border-top: 5px solid #dee2e6;
+}
+
+.about_heading hr {
+    border-top: 5px solid #dee2e6;
 }
 
 .about_me {
     display: flex;
     align-items: start;
-    text-align: right;
-    margin-top: 50px;
+    text-align: left;
+    margin-top: 30px;
     margin-left: 13rem;
     margin-right: 13rem;
+}
+
+.aboutme {
+    color: #dee2e6;
+}
+
+.aboutme:hover {
+    font-size: 40px;
+    font-weight: 800;
+    cursor: pointer;
 }
 
 .about_me iframe{
@@ -165,6 +237,7 @@ nav {
 
 .about_me_details {
     text-align: left;
+    margin-top: 30px;
 }
 
 .about_me_details img {
@@ -173,17 +246,30 @@ nav {
     object-fit: cover;
 }
 
+.favorites_heading {
+    margin-left: 13rem;
+    margin-right: 13rem;
+    margin-top: 20px;
+}
+
 .favorites {
     width: 720px; 
     margin: 0 13rem; 
+    margin-top: 20px;
     border-style: solid;
     border-radius: 10px;
     padding: 5px;
 }
-/*
-.favorites_heading {
-    margin-left: 13rem; 
-}*/
+
+.favorites-heading {
+    color: #dee2e6;
+}
+
+.favorites-heading:hover {
+    font-size: 30px;
+    font-weight: 700;
+    cursor: pointer;
+}
 
 .favorite_item {
     text-align: center;
@@ -215,13 +301,53 @@ nav {
     }
 }
 
+
 /* INTERESTS AND SKILLS */
+
 .interests_skills {
-    background-color: #ffdcdb;
+    background-color: #e0e1dd;
     padding: 30px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     height: 100vh;
+}
+
+.interest_skill_heading {
+    margin-left: 13rem;
+    align-items: center;
+}
+
+.interest_skill_heading hr {
+    border-top: 5px solid #778da9;
+}
+
+.myInterests hr {
+    border-top: 5px solid #778da9;
+}
+
+.mySkills hr {
+    border-top: 5px solid #778da9;
+}
+
+.interest-skill {
+    color: #393d3f;
+}
+
+.interest-skill:hover {
+    font-size: 40px;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.interest_skill_heading {
+    margin-right: 13rem;
+    color: #393d3f;
+}
+
+.interest_and_skill {
+    display: flex;
+    flex-direction: row;
 }
 
 .myInterests,
@@ -229,22 +355,29 @@ nav {
     width: 310px;
     height: 200px; 
     text-align: justify;
-    margin-top: 160px;
     border-style: solid;
     border-radius: 10px;
     padding: 20px;
+    color: #778da9;
+}
+
+.interest, .skill {
+    color: #393d3f;
+}
+
+.interest:hover, .skill:hover {
+    font-size: 30px;
+    font-weight: 700;
+    cursor: pointer;
 }
 
 .myInterests {
+    margin-left: 13rem;
     margin-right: 15px;
 }
 
 .mySkills {
     margin-left: 15px;
-}
-
-.myInterests h2, .mySkills h2 {
-    text-align: left;
 }
 
 .python, .c-sharp, .c-plus-plus {
@@ -278,55 +411,73 @@ nav {
 
 .contact_section {
     display:flex;
-    background-color: #b4c8ea;
+    flex-direction: column;
+    background-color: #778da9;
     padding: 30px;
-    height: 100vh;;
+    height: 100vh;
+    color: #dee2e6;
 }
-/*
-.contact_heading {
-    margin-left: 13.5rem;
-}*/
+
+.contact-heading-main {
+    margin-left: 13rem;
+    margin-right: 13rem;
+    margin-top: 130px;
+}
+
+.contact-heading-main hr {
+    border-top: 5px solid #dee2e6;
+}
+
+.contact-heading-div hr {
+    border-top: 5px solid #dee2e6;
+}
+
+.contact_main_text:hover {
+    font-size: 40px;
+    font-weight: 800;
+    cursor: pointer;
+}
 
 .contact_div {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     padding: 20px;
-    margin-left: 13.5rem;
-    margin-top: 240px;
     border-style: solid;
     border-radius: 10px;
-    height: 120px;
+    height: 150px;
+    margin-left: 13rem;
+    margin-right: 13rem;
+}
+
+.contact_heading {
+    color: #393d3f;
+}
+
+.contact_heading:hover {
+    font-size: 30px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.contact_content {
+    display: flex;
+    flex-direction: row;
+    margin-left: 55px;
 }
 
 .contact_detail {
     align-items: center;
     justify-content: center;
-    text-align: center;
     margin-left: 3rem;
     margin-right: 5rem;
-    margin-top: 30px;
 }
-
-.contact_image {
-    align-self: center;
-}
-
-.contact_link {
-    text-decoration: none;
-    color: black;
-}
-
-.contact_link:hover {
-    text-decoration: none;
-    color: #9E64E8;
-}
-
 
 .contact_image {
     width: 70px;
     height: 70px;
     object-fit: cover;
-    /*margin-right: 5px; */
+    align-self: center;
 }
 
 .contact_image:hover {
@@ -342,14 +493,52 @@ nav {
     }
 }
 
-/* PROJECTS AND ACHIEVEMENTS */
+
+/* PROJECTS AND ACHIEVEMENTS SECTION */
+
 .projects_achievements {
-    background-color: #ffdcdb;
+    background-color: #e0e1dd;
     overflow: hidden;
     padding: 30px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     height: 100vh;
+}
+
+.project_achievement_heading {
+    margin-left: 13rem;
+    margin-right: 13rem;
+}
+
+.project_achievement_heading hr {
+    border-top: 5px solid #778da9;
+}
+
+.myProjects hr {
+    border-top: 5px solid #778da9;
+}
+
+.myAchievements hr {
+    border-top: 5px solid #778da9;
+}
+
+.project_achievement {
+    display: flex;
+    flex-direction: row;
+    margin-left: 13rem;
+    margin-right: 13rem;
+    color: #778da9;
+}
+
+.project-achievement {
+    color: #393d3f;
+}
+
+.project-achievement:hover {
+    font-size: 40px;
+    font-weight: 800;
+    cursor: pointer;
 }
 
 .myProjects,
@@ -359,11 +548,11 @@ nav {
     text-align: justify;
     border-style: solid;
     border-radius: 10px;
-    margin-top: 250px;
     padding: 20px;
 }
 
 .myProjects {
+
     margin-right: 15px;
 }
 
@@ -375,21 +564,62 @@ nav {
     text-align: left;
 }
 
+.project_heading, .achievement_heading {
+    color: #393d3f;
+}
+
+.project_heading:hover, .achievement_heading:hover {
+    font-size: 30px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
 .figma, .python_certificate {
     padding: 20px;
     text-align: left;
     text-decoration: none;
-    color: black;
+    color: #393d3f;
 }
 
 .figma:hover, .python_certificate:hover {
     text-decoration: none;
-    color: #9E64E8;
+    color: #778da9;
 }
 
-.myframe {
-    width: 100%;
-    height: 100vh;
-    border:none;
-    overflow: hidden;
+
+/* FOOTER SECTION */
+
+footer {
+    height: 20vh;
+    background-color: #778da9;
+    color: whitesmoke;
+}
+
+footer p {
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+footer nav {
+    text-align: center;
+}
+
+.nav_click_footer {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    font-size: 20px;
+    list-style: none;
+}
+
+.nav_click_footer a {
+    color: whitesmoke;
+    text-decoration: none;
+    text-decoration-color: white;
+}
+
+.nav_click_footer a:hover{
+    color: #393d3f;
+    text-decoration: none;
+    font-weight: bold;
 }

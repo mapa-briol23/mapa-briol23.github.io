@@ -5,8 +5,8 @@
         <link rel="stylesheet" href="styles.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="...">
     </head>
-
     <body>
+        <!--NAVIGATION-->
         <nav id="navigation">
             <div class="gojo"> WELCOME <img src="./assets/gojo.gif" id="gif"> </div>
             <div>
@@ -17,64 +17,72 @@
                 </ul>
             </div>
         </nav>
+
         <!--WELCOME SECTION-->
         <section class="welcome"> 
             <div class="intro">
-                <img src="./assets/mypicture.jpg" class="my_picture">
-                <h1 style="font-size: 40px;"> Greetings! </h1> <br> <br>
-                <p>I am <b>Ma. Anne Phaula A. Briol</b> 
-                but you may call me <i>Phaula</i>. My primary goals include 
-                <i>graduating college</i> and <i>having a successful and stable 
-                career as a web developer</i>
-                in the future.</p>
-
+                <h1 class="greetings"> Greetings! </h1> <br> 
+                <hr> <br>
+                <div class="picture-div"><img src="./assets/mypicture.jpg" class="my_picture"></div>
+                <div class="intro_paragraph" style="color: #393d3f;">
+                    <p>I am <b>Ma. Anne Phaula A. Briol</b> 
+                    but you may call me <i>Phaula</i>. My primary goals include 
+                    <i>graduating college</i> and <i>having a successful and stable 
+                    career as a web developer</i>
+                    in the future.</p>
+                </div>
                 <div class="buttons">
-                    <a class="interests" href="#interests-skills_click"> My Interests </a>
-                    <a class="skills" href="#interests-skills_click"> My Skills </a>
+                    <a href="#interests-skills_click" class="interest_skill_button"> Interest & Skill </a>
                 </div>
             </div>
         </section>
 
         <!--ABOUT ME SECTION-->
         <section class="about" id="about">
+            <div class="about_heading">
+                <h2 class="aboutme"> About Me.</h2>  <br>
+                <hr>
+            </div>
             <div class="about_me">
-                <iframe width="300" height="200" src="https://www.youtube.com/embed/mBXBOLG06Wc?si=Emj4eaBU2M3OBeJk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                <div class="about_me_details">
-                    <h2> About Me.</h2> <br> <br>
+                <div>
+                    <iframe width="300" height="200" src="https://www.youtube.com/embed/mBXBOLG06Wc?si=Emj4eaBU2M3OBeJk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+                <div class="about_me_details" style="color: #dee2e6;">
                     <p> <img src="./assets/calendar.png"> Age: 20 years old </p> <br> 
                     <p> <img src="./assets/school.png"> College: Mapua Malayan College of Laguna </p> <br> 
                     <p> <img src="./assets/course.png"> Course/Program: BS in Information Technology </p> <br>
                 </div>
             </div>
-            <br>
-            
+            <div class="favorites_heading">
+                <h3 class="favorites-heading"> Favorites </h3> <br>
+                <hr>
+            </div>
             <div class="favorites" >
-                <h3 class="favorites_heading"> Favorites </h3>
-                <div class="fav-contents">
+                <div class="fav-contents" style="color: #dee2e6;">
                     <div class="favorite_item"> 
                         <a href="https://www.youtube.com/@pledis17">
                             <img src="./assets/svt.jpg" class="favorite_image">
                         </a> 
-                        <p>Favorite Artist</p>
+                        <p><b>Favorite Artist</b></p>
                     </div>
 
                     <div class="favorite_item">
                         <a href="https://www.imdb.com/title/tt0088763/">
                             <img src="./assets/btf.jpg" class="favorite_image">
                         </a>
-                        <p>Favorite Movie</p>
+                        <p><b>Favorite Movie</b></p>
                     </div>
                     <div class="favorite_item">
                         <a href="https://www.imdb.com/title/tt11737520/">
                             <img src="./assets/opla.jpg" class="favorite_image">
                         </a>
-                        <p>Favorite TV Series</p>
+                        <p><b>Favorite TV Series</b></p>
                     </div>
                     <div class="favorite_item">
                         <a href="https://www.imdb.com/title/tt12343534/">
                             <img src="./assets/jjk.jpg" alt="Image 4" class="favorite_image">
                         </a>
-                        <p>Favorite Anime</p>
+                        <p><b>Favorite Anime</b></p>
                     </div>
                 </div>
             </div>
@@ -82,56 +90,94 @@
 
             <!--INTERESTS and SKILLS SECTION-->
         <section class="interests_skills" id="interests-skills_click">
-            <div class="myInterests">
-                <h2>Interests</h2> <br> <br>
-                <ul class="interest_info">
-                    <li>Listening to music</li> <br>
-                    <li>Watching movies, tv series, and anime</li> <br>
-                    <li>Reading books</li> <br>
-                </ul>
-            </div>
-            <div class="mySkills">
-                <h2>Skills</h2> <br> <br>
-                <p>Programming (Python, C#, C++) </p> <br>
-                <a href="https://www.python.org/"> <img src="./assets/python.png" class="python"> </a>
-                <a href="https://dotnet.microsoft.com/en-us/languages/csharp"> <img src="./assets/c-sharp.png" class="c-sharp"> </a>
-                <a href="https://programiz.com/cpp-programming"> <img src="./assets/c-plus-plus.png" class="c-plus-plus"> </a>
+            <div class="interest_skill_heading">
+                 <h2 class="interest-skill">Interest & Skill.</h2> <br>
+                <hr> <br>
+            </div> 
+            <div class="interest_and_skill">
+                <div class="myInterests">
+                    <h3 class="interest">Interests</h3><br>
+                    <hr> <br>
+                    <ul class="interest_info" style="color: #393d3f;">
+                        <li>Listening to music</li> <br>
+                        <li>Watching movies, tv series, and anime</li> <br>
+                        <li>Reading books</li> <br>
+                    </ul>
+                </div>
+                <div class="mySkills">
+                    <h3 class="skill">Skills</h3> <br>
+                    <hr> <br>
+                    <p style="color: #393d3f;">Programming (Python, C#, C++) </p> <br>
+                    <a href="https://www.python.org/"> <img src="./assets/python.png" class="python"> </a>
+                    <a href="https://dotnet.microsoft.com/en-us/languages/csharp"> <img src="./assets/c-sharp.png" class="c-sharp"> </a>
+                    <a href="https://programiz.com/cpp-programming"> <img src="./assets/c-plus-plus.png" class="c-plus-plus"> </a>
+                </div>
             </div>
         </section>
 
         <!--CONTACT-->
         <section class="contact_section" id="contact">
-                    
+            <div class="contact-heading-main">
+                <h2 class="contact_main_text">Contact.</h2> <br>
+                <hr> <br>
+            </div> 
             <div class="contact_div">
-                <h2 class="contact_heading">Contact.</h2>
-                <div class="contact_detail">
-                    <a href="https://mail.google.com/mail/u/?authuser=ma.phaula.briol@gmail.com" class="contact_link">
-                        <img src="./assets/email.png" class="contact_image">
-                    </a>
+                <div class="contact-heading-div">
+                    <h3 class="contact_heading" style="color: #dee2e6;">Connect With Me.</h3> <br>
+                    <hr class="contact_hr"> <br>
                 </div>
-                <div class="contact_detail">
-                    <a href="https://github.com/mapa-briol23" class="contact_link">
-                        <img src="./assets/github.png" class="contact_image">
-                    </a>
-                </div>
-                <div class="contact_detail">
-                    <a href="https://www.instagram.com/" class="contact_link">
-                        <img src="./assets/instagram.png" class="contact_image">
-                    </a>
+                <div class="contact_content">
+                    <div class="contact_detail">
+                        <a href="https://mail.google.com/mail/u/?authuser=ma.phaula.briol@gmail.com" class="contact_link">
+                            <img src="./assets/email.png" class="contact_image">
+                        </a>
+                    </div>
+                    <div class="contact_detail">
+                        <a href="https://github.com/mapa-briol23" class="contact_link">
+                            <img src="./assets/github.png" class="contact_image">
+                        </a>
+                    </div>
+                    <div class="contact_detail">
+                        <a href="https://www.instagram.com/yo__itsphau/" class="contact_link">
+                            <img src="./assets/instagram.png" class="contact_image">
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
 
             <!--PROJECTS and ACHIEVEMENTS-->
         <section class="projects_achievements" id="project-achievements">
-            <div class="myProjects">
-                <h2 class="project_heading">Project</h2> <br> <br>
-                <a href="https://www.figma.com/proto/PwJS5BiPLpOnsJ3027JVm4/IT---ID-Team%3A-Data-Analysis?type=design&node-id=815-12069&scaling=scale-down-width&page-id=815%3A11995&starting-point-node-id=815%3A12069&show-proto-sidebar=1&mode=design&t=JGDLOzgf0qfCTUOY-1" class="figma"> IT - ID TEAM </a>
-            </div>
-            <div class="myAchievements">
-                <h2>Achievement</h2> <br> <br>
-                <a href="https://www.figma.com/proto/PwJS5BiPLpOnsJ3027JVm4/IT---ID-Team%3A-Data-Analysis?type=design&node-id=815-12069&scaling=scale-down-width&page-id=815%3A11995&starting-point-node-id=815%3A12069&show-proto-sidebar=1&mode=design&t=JGDLOzgf0qfCTUOY-1" class="python_certificate"> Python Completion Certificate </a>
+            <div class="project_achievement_heading">
+                <h2 class="project-achievement">Project & Achievement.</h2> <br>
+               <hr> <br>
+            </div> 
+            <div class="project_achievement">
+                <div class="myProjects">
+                    <h3 class="project_heading">Project</h3> <br> 
+                    <hr> <br>
+                    <a href="https://www.figma.com/proto/PwJS5BiPLpOnsJ3027JVm4/IT---ID-Team%3A-Data-Analysis?type=design&node-id=815-12069&scaling=scale-down-width&page-id=815%3A11995&starting-point-node-id=815%3A12069&show-proto-sidebar=1&mode=design&t=JGDLOzgf0qfCTUOY-1" class="figma"> IT - ID TEAM </a>
+                </div>
+                <div class="myAchievements">
+                    <h3 class="achievement_heading">Achievement</h3> <br> 
+                    <hr> <br>
+                    <a href="Python Certificate of Completion.pdf" class="python_certificate"> Python Completion Certificate </a>
+                </div>
             </div>
         </section>
+
+        <!-- FOOTER SECTION -->
+        <footer>
+            <div class="nav-links-footer">
+                <nav>
+                    <ul class="nav_click_footer">
+                        <li><a href="#about"><i class="far fa-address-card"></i> About Me </a></li>
+                        <li><a href="#contact"> <i class="fas fa-phone"></i> Contact </a></li>
+                        <li><a href="#project-achievements"> <i class="fas fa-tasks"></i> Project & Achievements </a></li>
+                    </ul>
+                </nav>
+            </div>
+            <p> Copyright &copy; 2024 Phaula Briol. All Rights Reserved. </p>
+        </footer>
     </body>
 </html>
