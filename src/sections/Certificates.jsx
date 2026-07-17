@@ -8,7 +8,7 @@ import { certificates } from "../data/certificates";
 
 const particles = [
   { left: "8%", top: "60%", size: 6, color: "rgba(96, 165, 250, 0.15)", delay: "3s" },
-  { left: "88%", top: "80%", size: 4, color: "rgba(147, 197, 253, 0.1)", delay: "11s" },
+  { left: "88%", top: "80%", size: 4, color: "rgba(139, 92, 246, 0.14)", delay: "11s" },
 ];
 
 /** Full-width rows instead of a grid: the scan on one side, the metadata on the

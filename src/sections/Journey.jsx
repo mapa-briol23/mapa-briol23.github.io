@@ -18,19 +18,23 @@ function Journey() {
         {/* The spine the nodes sit on: left-aligned on mobile, centred once steps alternate. */}
         <span
           aria-hidden="true"
-          className="absolute top-2 bottom-2 left-[5px] w-px bg-linear-to-b from-transparent via-secondary/30 to-transparent lg:left-1/2"
+          className="absolute top-2 bottom-2 left-[5px] w-px bg-linear-to-b from-secondary/25 via-iris/30 to-secondary/25 lg:left-1/2"
         />
 
         {journey.map((entry, index) => {
           const stepNumber = String(index + 1).padStart(2, "0");
           const isRight = index % 2 === 0;
+          // Alternate the accent down the spine so the timeline carries both of
+          // Gojo's colours rather than one flat blue.
+          const dotClass = isRight ? "bg-secondary/60" : "bg-iris/65";
+          const numClass = isRight ? "text-secondary/40" : "text-iris/45";
 
           return (
             <li key={entry.id} className="relative">
               {/* The node marks the step on the spine at both breakpoints. */}
               <span
                 aria-hidden="true"
-                className="absolute top-2 left-[5px] z-10 h-2.5 w-2.5 -translate-x-1/2 rounded-full bg-secondary/60 ring-4 ring-abyss lg:left-1/2"
+                className={`absolute top-2 left-[5px] z-10 h-2.5 w-2.5 -translate-x-1/2 rounded-full ring-4 ring-abyss lg:left-1/2 ${dotClass}`}
               />
 
               <Reveal delay={index * 80} className="lg:grid lg:grid-cols-2 lg:items-start">
@@ -42,7 +46,7 @@ function Journey() {
                     isRight ? "lg:pl-14" : "lg:order-1 lg:flex-row-reverse lg:pr-14 lg:text-right"
                   }`}
                 >
-                  <span className="shrink-0 text-4xl font-extrabold tracking-tight text-secondary/40 tabular-nums sm:text-5xl">
+                  <span className={`shrink-0 text-4xl font-extrabold tracking-tight tabular-nums sm:text-5xl ${numClass}`}>
                     {stepNumber}
                   </span>
 

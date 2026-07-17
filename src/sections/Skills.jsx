@@ -7,7 +7,7 @@ import { skillCategories } from "../data/skills";
 
 const particles = [
   { left: "12%", top: "70%", size: 5, color: "rgba(96, 165, 250, 0.15)", delay: "0s" },
-  { left: "82%", top: "85%", size: 4, color: "rgba(147, 197, 253, 0.1)", delay: "6s" },
+  { left: "82%", top: "85%", size: 4, color: "rgba(139, 92, 246, 0.14)", delay: "6s" },
 ];
 
 /** No cards: each category is a bold label with its skills as inline pills beneath,
@@ -16,6 +16,10 @@ function Skills() {
   return (
     <SectionContainer id="skills" tone="deep">
       <Particles positions={particles} />
+      <div
+        aria-hidden="true"
+        className="dot-grid pointer-events-none absolute inset-0 -z-10"
+      />
 
       <SectionHeader label="Skills" title="Technical Skills" align="right" className="mb-16" />
 

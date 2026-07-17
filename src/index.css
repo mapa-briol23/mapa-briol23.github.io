@@ -16,6 +16,13 @@
   --color-secondary: #60a5fa;
   --color-accent: #93c5fd;
 
+  /* Gojo's second colour: the violet in the cursed energy. Blue stays the light
+     source; these are the spice — eyebrows, timeline dots, the aura, selection.
+     `iris` is the saturated violet, `lilac`/`haze` lift off the dark plate. */
+  --color-iris: #8b5cf6;
+  --color-lilac: #a78bfa;
+  --color-haze: #c4b5fd;
+
   /* The plate everything composites onto, and the pane the cards are cut from. */
   --color-abyss: #020617;
   --color-pane: #0f172a;
@@ -64,6 +71,13 @@
     @apply bg-abyss font-sans text-ink antialiased;
   }
 
+  /* Selecting text on the page lights it in Gojo's violet — a small signature
+     nobody else's blue portfolio carries. */
+  ::selection {
+    background: rgba(139, 92, 246, 0.32);
+    color: #f1f5f9;
+  }
+
   /* Dark chrome for the scrollbar, so the gutter does not read as a white seam
      down the side of a near-black page. */
   * {
@@ -99,6 +113,15 @@
 
   .glass-hover {
     @apply transition duration-300 ease-out hover:-translate-y-1 hover:border-secondary/25 hover:shadow-[0_0_20px_rgba(96,165,250,0.06)];
+  }
+
+  /* A faint violet dot lattice, masked to fade at its edges. Adds texture to the
+     sections that carry no imagery without reading as a panel. */
+  .dot-grid {
+    background-image: radial-gradient(rgba(139, 92, 246, 0.12) 1px, transparent 1px);
+    background-size: 22px 22px;
+    -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, #000 35%, transparent 100%);
+    mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, #000 35%, transparent 100%);
   }
 }
 
@@ -243,7 +266,8 @@
   background-image: linear-gradient(
     90deg,
     transparent 0%,
-    rgba(96, 165, 250, 0.2) 50%,
+    rgba(96, 165, 250, 0.22) 42%,
+    rgba(139, 92, 246, 0.22) 58%,
     transparent 100%
   );
   background-size: 200% 100%;
@@ -263,7 +287,7 @@
 
 /* 4. Capstone aura — a slow conic sweep sitting behind the card. */
 .aura {
-  background: conic-gradient(from 0deg, #2563eb, #60a5fa, #93c5fd, #2563eb);
+  background: conic-gradient(from 0deg, #2563eb, #8b5cf6, #60a5fa, #93c5fd, #2563eb);
   filter: blur(20px);
   opacity: 0.15;
   animation: aura-spin 9s linear infinite;
@@ -339,6 +363,42 @@
   }
 }
 
+/* 7. Iris frame — a blue-to-violet hairline that pans slowly around a card edge.
+   Drawn with a mask-composite cut-out so only the 1px border shows. One use only
+   (the Internship card), so it turns the flattest section into a signature. */
+.iris-frame::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(
+    120deg,
+    rgba(96, 165, 250, 0.5),
+    rgba(139, 92, 246, 0.55),
+    rgba(96, 165, 250, 0.08),
+    rgba(139, 92, 246, 0.5)
+  );
+  background-size: 220% 220%;
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  animation: iris-pan 8s linear infinite;
+  will-change: background-position;
+}
+
+@keyframes iris-pan {
+  from {
+    background-position: 0% 50%;
+  }
+  to {
+    background-position: 220% 50%;
+  }
+}
+
 /* ---------------------------------------------------------------------------
    Accessibility — one switch disables every animation defined above.
    --------------------------------------------------------------------------- */
@@ -352,7 +412,8 @@
   .shimmer,
   .aura,
   .particle,
-  .cta-orb {
+  .cta-orb,
+  .iris-frame::before {
     animation: none !important;
   }
 

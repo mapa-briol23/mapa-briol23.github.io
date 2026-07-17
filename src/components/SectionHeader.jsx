@@ -19,7 +19,10 @@ function SectionHeader({ label, title, align = "left", className = "" }) {
     <Reveal as="header" from={from} className={`flex flex-col ${box} ${className}`}>
       {label && (
         <p className="mb-5 flex items-center gap-3 text-label text-secondary uppercase">
-          <span aria-hidden="true" className="h-px w-8 bg-secondary" />
+          <span
+            aria-hidden="true"
+            className="h-px w-8 bg-linear-to-r from-secondary to-lilac"
+          />
           {label}
         </p>
       )}

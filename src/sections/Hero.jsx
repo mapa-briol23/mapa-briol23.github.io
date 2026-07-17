@@ -36,7 +36,7 @@ function Hero() {
           color="rgba(147, 197, 253, 0.1)"
           className="top-1/3 right-[10%] hidden lg:block"
         />
-        <Orb cycle={4} size={240} color="rgba(96, 165, 250, 0.12)" className="top-[15%] left-[30%]" />
+        <Orb cycle={4} size={240} color="rgba(139, 92, 246, 0.12)" className="top-[15%] left-[30%]" />
       </div>
 
       {/* Quiet geometry, weighted away from the type. */}
@@ -54,10 +54,13 @@ function Hero() {
               className="absolute -inset-x-16 -inset-y-16 -z-10 bg-black/25 backdrop-blur-[1px] [mask-image:radial-gradient(70%_65%_at_36%_50%,#000_35%,transparent_100%)]"
             />
 
-            <Reveal as="p" className="mb-6 flex items-center gap-3 text-label text-secondary uppercase">
-              <span aria-hidden="true" className="h-px w-8 bg-secondary" />
+{/*             <Reveal as="p" className="mb-6 flex items-center gap-3 text-label text-secondary uppercase">
+              <span
+                aria-hidden="true"
+                className="h-px w-8 bg-linear-to-r from-secondary to-lilac"
+              />
               Academic Web Portfolio
-            </Reveal>
+            </Reveal> */}
 
             <h1 className="flex flex-wrap gap-x-[0.28em] text-5xl font-extrabold tracking-tight text-ink sm:text-6xl lg:text-hero">
               {profile.fullName.split(" ").map((word, index) => (

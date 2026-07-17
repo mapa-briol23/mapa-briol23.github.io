@@ -7,6 +7,11 @@ import { ConcentricCircles, LineAccent } from "../components/Decor";
 function About() {
   return (
     <SectionContainer id="about" tone="mid">
+      <div
+        aria-hidden="true"
+        className="dot-grid pointer-events-none absolute inset-0 -z-10"
+      />
+
       <div className="grid gap-16 lg:grid-cols-[minmax(0,3fr)_minmax(0,2fr)] lg:items-center lg:gap-24">
         <div>
           <SectionHeader label="About" title="About Me" />
@@ -34,10 +39,16 @@ function About() {
             aria-hidden="true"
             className="absolute inset-[8%] rounded-full bg-radial from-secondary/20 via-secondary/6 to-transparent blur-3xl"
           />
+          {/* A second pool, offset and violet, so the composition blends blue into
+              Gojo's purple instead of reading as one flat blue glow. */}
+          <div
+            aria-hidden="true"
+            className="absolute inset-[22%] translate-x-6 translate-y-4 rounded-full bg-radial from-iris/18 via-iris/5 to-transparent blur-3xl"
+          />
           <ConcentricCircles size={360} rings={4} className="top-1/2 left-1/2 -translate-1/2" />
           <div
             aria-hidden="true"
-            className="absolute top-1/2 left-1/2 h-32 w-32 -translate-1/2 rounded-full border border-secondary/12 bg-secondary/3 backdrop-blur-md"
+            className="absolute top-1/2 left-1/2 h-32 w-32 -translate-1/2 rounded-full border border-lilac/20 bg-secondary/3 backdrop-blur-md"
           />
         </Reveal>
       </div>
