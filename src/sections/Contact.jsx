@@ -1,4 +1,4 @@
-import { Mail } from "lucide-react";
+import { Mail, ExternalLink } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "../components/icons/BrandIcons";
 import SectionContainer from "../layouts/SectionContainer";
 import SectionHeader from "../components/SectionHeader";
@@ -29,6 +29,14 @@ const contactMethods = [
     value: "linkedin.com/in/phaula-briol",
     href: profile.linkedin,
     Icon: LinkedinIcon,
+    external: true,
+  },
+  {
+    id: "credly",
+    label: "Credly",
+    value: "credly.com/users/ma-anne-phaula-briol",
+    href: profile.credly,
+    Icon: ExternalLink,
     external: true,
   },
 ];

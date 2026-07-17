@@ -1,4 +1,4 @@
-import { Mail } from "lucide-react";
+import { Mail, ExternalLink } from "lucide-react";
 import AmbientVideo from "../components/AmbientVideo";
 import { GithubIcon, LinkedinIcon } from "../components/icons/BrandIcons";
 import { navItems, profile } from "../data/navigation";
@@ -7,6 +7,7 @@ const socialLinks = [
   { id: "email", label: "Email", href: `mailto:${profile.email}`, Icon: Mail },
   { id: "github", label: "GitHub", href: profile.github, Icon: GithubIcon },
   { id: "linkedin", label: "LinkedIn", href: profile.linkedin, Icon: LinkedinIcon },
+  { id: "credly", label: "Credly", href: profile.credly, Icon: ExternalLink },
 ];
 
 function Footer() {

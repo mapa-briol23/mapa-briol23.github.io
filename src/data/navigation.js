@@ -18,5 +18,6 @@ export const profile = {
   email: "ma.phaula.briol@gmail.com",
   github: "https://github.com/mapa-briol23",
   linkedin: "https://www.linkedin.com/in/phaula-briol-0290a1308/",
+  credly: "https://www.credly.com/users/ma-anne-phaula-briol",
   cvPath: "/CV - Ma. Anne Phaula A. Briol.pdf",
 };

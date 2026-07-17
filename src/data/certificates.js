@@ -20,13 +20,14 @@ export const certificates = [
     date: "September 2025",
     imageLabel: "Cisco Ethical Hacker Certificate",
   },
-  {
-    id: "cert-4",
-    title: "TOEIC Score: 935 / 990",
-    organization: "Princeton Assessments and Training Inc.",
-    date: "June 2025",
-    imageLabel: "TOEIC Score Report",
-  },
+  // Temporarily hidden — TOEIC certificate.
+  // {
+  //   id: "cert-4",
+  //   title: "TOEIC Score: 935 / 990",
+  //   organization: "Princeton Assessments and Training Inc.",
+  //   date: "June 2025",
+  //   imageLabel: "TOEIC Score Report",
+  // },
   {
     id: "cert-5",
     title: "CCNA: Introduction to Networks",
