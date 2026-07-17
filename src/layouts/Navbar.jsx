@@ -13,23 +13,32 @@ function Navbar() {
   const closeMenu = () => setIsMenuOpen(false);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-line bg-white/80 backdrop-blur-md">
-      <nav aria-label="Main" className="mx-auto flex h-20 max-w-6xl items-center justify-between px-6 lg:px-8">
-        <a href="#home" className="text-base font-bold text-ink" onClick={closeMenu}>
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-white/60 bg-white/70 backdrop-blur-xl">
+      <nav
+        aria-label="Main"
+        className="mx-auto flex h-20 max-w-[1200px] items-center justify-between px-6 lg:px-8"
+      >
+        <a href="#home" className="text-base font-bold tracking-tight text-ink" onClick={closeMenu}>
           Phaula Briol
         </a>
 
-        <ul className="hidden items-center gap-6 lg:flex">
+        <ul className="hidden items-center gap-7 lg:flex">
           {navItems.map((item) => (
             <li key={item.id}>
               <a
                 href={`#${item.id}`}
                 aria-current={activeId === item.id ? "true" : undefined}
-                className={`text-sm font-medium transition duration-200 hover:text-primary ${
+                className={`relative text-sm font-medium transition duration-300 hover:text-primary ${
                   activeId === item.id ? "text-primary" : "text-muted"
                 }`}
               >
                 {item.label}
+                {activeId === item.id && (
+                  <span
+                    aria-hidden="true"
+                    className="absolute -bottom-1.5 left-1/2 h-1 w-1 -translate-x-1/2 rounded-full bg-primary"
+                  />
+                )}
               </a>
             </li>
           ))}
@@ -47,7 +56,7 @@ function Navbar() {
             aria-expanded={isMenuOpen}
             aria-controls="mobile-menu"
             aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-            className="rounded-lg p-2 text-ink transition duration-200 hover:bg-surface lg:hidden"
+            className="rounded-full p-2 text-ink transition duration-300 hover:bg-haze lg:hidden"
           >
             {isMenuOpen ? (
               <X className="h-5 w-5" aria-hidden="true" />
@@ -59,8 +68,8 @@ function Navbar() {
       </nav>
 
       {isMenuOpen && (
-        <div id="mobile-menu" className="border-t border-line bg-white lg:hidden">
-          <ul className="mx-auto flex max-w-6xl flex-col px-6 py-4">
+        <div id="mobile-menu" className="border-t border-white/60 bg-white/90 backdrop-blur-xl lg:hidden">
+          <ul className="mx-auto flex max-w-[1200px] flex-col px-6 py-4">
             {navItems.map((item) => (
               <li key={item.id}>
                 <a

@@ -3,23 +3,27 @@ import Card from "./Card";
 
 function SeminarCard({ seminar }) {
   return (
-    <Card as="article" className="flex flex-col gap-3">
-      <h3 className="text-card text-ink">{seminar.title}</h3>
+    <Card as="article" className="group flex h-full flex-col gap-4">
+      <h3 className="text-card text-balance text-ink transition duration-300 group-hover:text-primary">
+        {seminar.title}
+      </h3>
 
       <dl className="flex flex-col gap-2 text-sm text-muted">
-        <div className="flex items-center gap-2">
-          <Users className="h-4 w-4 shrink-0" aria-hidden="true" />
+        <div className="flex items-center gap-2.5">
+          <Users className="h-4 w-4 shrink-0 text-accent" aria-hidden="true" />
           <dt className="sr-only">Organizer</dt>
           <dd>{seminar.organizer}</dd>
         </div>
-        <div className="flex items-center gap-2">
-          <Calendar className="h-4 w-4 shrink-0" aria-hidden="true" />
+        <div className="flex items-center gap-2.5">
+          <Calendar className="h-4 w-4 shrink-0 text-accent" aria-hidden="true" />
           <dt className="sr-only">Date</dt>
           <dd>{seminar.date}</dd>
         </div>
       </dl>
 
-      <p className="text-base text-muted">{seminar.description}</p>
+      <div aria-hidden="true" className="h-px bg-linear-to-r from-accent/40 to-transparent" />
+
+      <p className="text-base leading-relaxed text-muted">{seminar.description}</p>
     </Card>
   );
 }

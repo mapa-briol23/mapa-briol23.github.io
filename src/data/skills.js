@@ -2,26 +2,33 @@ export const skillCategories = [
   {
     id: "languages",
     title: "Programming Languages",
-    skills: ["Placeholder Language 1", "Placeholder Language 2", "Placeholder Language 3", "Placeholder Language 4"],
+    skills: ["Python", "C#", "JavaScript", "HTML", "CSS", "SQL"],
   },
   {
     id: "frameworks",
     title: "Frameworks & Libraries",
-    skills: ["Placeholder Framework 1", "Placeholder Framework 2", "Placeholder Library 1", "Placeholder Library 2"],
+    skills: ["React", "Express.js", "Node.js", "Tailwind CSS", "ASP.NET Web Forms"],
   },
   {
     id: "tools",
     title: "Development Tools",
-    skills: ["Placeholder Tool 1", "Placeholder Tool 2", "Placeholder Tool 3"],
+    skills: [
+      "Visual Studio",
+      "Visual Studio Code",
+      "Oracle SQL Developer",
+      "XAMPP",
+      "GitHub",
+      "Figma",
+    ],
   },
   {
     id: "databases",
     title: "Database Technologies",
-    skills: ["Placeholder Database 1", "Placeholder Database 2", "Placeholder Database 3"],
+    skills: ["MySQL", "Oracle Database", "SQL Server"],
   },
   {
     id: "version-control",
     title: "Version Control",
-    skills: ["Placeholder VCS 1", "Placeholder VCS 2"],
+    skills: ["Git", "GitHub"],
   },
 ];

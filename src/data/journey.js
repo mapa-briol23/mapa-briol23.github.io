@@ -2,49 +2,29 @@ export const journey = [
   {
     id: "first-year",
     year: "First Year",
-    period: "Placeholder School Year",
-    summary: "Placeholder summary of the foundation year and the core computing subjects taken.",
-    milestones: [
-      "Placeholder major subject completed",
-      "Placeholder introductory programming project",
-      "Placeholder skill gained",
-    ],
-    achievements: ["Placeholder achievement or recognition"],
+    period: "2022–2023",
+    summary:
+      "Learned the fundamentals of programming and Information Technology while building a strong foundation through introductory courses.",
   },
   {
     id: "second-year",
     year: "Second Year",
-    period: "Placeholder School Year",
-    summary: "Placeholder summary of the year focused on data structures and application development.",
-    milestones: [
-      "Placeholder major subject completed",
-      "Placeholder software project delivered",
-      "Placeholder skill gained",
-    ],
-    achievements: ["Placeholder achievement or recognition"],
+    period: "2023–2024",
+    summary:
+      "Improved my programming and software development skills by working on web, database, and application development projects.",
   },
   {
     id: "third-year",
     year: "Third Year",
-    period: "Placeholder School Year",
-    summary: "Placeholder summary of the year focused on systems, databases, and team-based development.",
-    milestones: [
-      "Placeholder major subject completed",
-      "Placeholder team project delivered",
-      "Placeholder skill gained",
-    ],
-    achievements: ["Placeholder achievement or recognition"],
+    period: "2024–2025",
+    summary:
+      "Started my Cybersecurity specialization while continuing to develop my technical skills through advanced IT courses and projects.",
   },
   {
     id: "fourth-year",
     year: "Fourth Year",
-    period: "Placeholder School Year",
-    summary: "Placeholder summary of the capstone year and on-the-job training.",
-    milestones: [
-      "Placeholder major subject completed",
-      "Placeholder capstone milestone",
-      "Placeholder skill gained",
-    ],
-    achievements: ["Placeholder achievement or recognition"],
+    period: "2025–Present",
+    summary:
+      "Applied what I learned through my capstone project and On-the-Job Training while preparing for a career as an IT professional specializing in cybersecurity.",
   },
 ];

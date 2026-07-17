@@ -5,6 +5,7 @@ export const navItems = [
   { id: "journey", label: "Journey" },
   { id: "projects", label: "Projects" },
   { id: "capstone", label: "Capstone" },
+  { id: "internship", label: "Internship" },
   { id: "certificates", label: "Certificates" },
   { id: "seminars", label: "Seminars" },
   { id: "contact", label: "Contact" },
@@ -16,6 +17,6 @@ export const profile = {
   school: "Mapúa Malayan Colleges Laguna",
   email: "ma.phaula.briol@gmail.com",
   github: "https://github.com/mapa-briol23",
-  linkedin: "https://www.linkedin.com/",
-  cvPath: "/curriculum-vitae.pdf",
+  linkedin: "https://www.linkedin.com/in/phaula-briol-0290a1308/",
+  cvPath: "/CV - Ma. Anne Phaula A. Briol.pdf",
 };

@@ -1,12 +1,12 @@
 function TagList({ label, items }) {
   return (
     <div>
-      <p className="mb-2 text-sm font-semibold text-ink">{label}</p>
+      <p className="mb-3 text-label text-muted uppercase">{label}</p>
       <ul className="flex flex-wrap gap-2">
         {items.map((item) => (
           <li
             key={item}
-            className="rounded-full bg-surface px-3 py-1 text-sm text-muted ring-1 ring-line ring-inset"
+            className="rounded-full bg-linear-to-br from-haze to-mist px-3.5 py-1.5 text-sm text-ink/80 ring-1 ring-white/70 ring-inset"
           >
             {item}
           </li>

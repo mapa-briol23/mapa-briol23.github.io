@@ -3,6 +3,7 @@ import { GithubIcon, LinkedinIcon } from "../components/icons/BrandIcons";
 import SectionContainer from "../layouts/SectionContainer";
 import SectionHeader from "../components/SectionHeader";
 import Card from "../components/Card";
+import Reveal from "../components/Reveal";
 import { profile } from "../data/navigation";
 
 const contactMethods = [
@@ -34,24 +35,31 @@ const contactMethods = [
 
 function Contact() {
   return (
-    <SectionContainer id="contact">
+    <SectionContainer id="contact" tone="clear">
+      {/* A last pool of light under the closing section. */}
+      <div
+        aria-hidden="true"
+        className="absolute top-1/4 left-1/2 -z-10 h-[32rem] w-[52rem] -translate-x-1/2 rounded-full bg-radial from-accent/25 via-secondary/8 to-transparent blur-3xl"
+      />
+
       <SectionHeader
         label="Contact"
         title="Get in Touch"
-        intro="Open to internship and entry-level software development opportunities."
+        align="center"
+        className="mb-16"
       />
 
       <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {contactMethods.map(({ id, label, value, href, Icon, external }) => (
-          <li key={id}>
+        {contactMethods.map(({ id, label, value, href, Icon, external }, index) => (
+          <Reveal key={id} as="li" delay={index * 100}>
             <Card
               as="a"
               href={href}
               target={external ? "_blank" : undefined}
               rel={external ? "noreferrer" : undefined}
-              className="flex h-full items-center gap-4"
+              className="group flex h-full items-center gap-4"
             >
-              <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-surface text-primary">
+              <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-linear-to-br from-haze to-mist text-primary ring-1 ring-white/70 transition duration-300 group-hover:from-accent/30 group-hover:to-secondary/20">
                 <Icon className="h-5 w-5" aria-hidden="true" />
               </span>
               <span className="min-w-0">
@@ -59,7 +67,7 @@ function Contact() {
                 <span className="block truncate text-sm text-muted">{value}</span>
               </span>
             </Card>
-          </li>
+          </Reveal>
         ))}
       </ul>
     </SectionContainer>

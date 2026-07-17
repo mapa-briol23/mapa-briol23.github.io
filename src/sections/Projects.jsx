@@ -1,30 +1,27 @@
 import SectionContainer from "../layouts/SectionContainer";
 import SectionHeader from "../components/SectionHeader";
 import ProjectCard from "../components/ProjectCard";
+import Reveal from "../components/Reveal";
 import { projectGroups } from "../data/projects";
 
+/** Flat two-column grid of every project, with the total count beside the heading. */
 function Projects() {
+  const projects = projectGroups.flatMap((group) => group.projects);
+
   return (
-    <SectionContainer id="projects">
-      <SectionHeader
-        label="Projects"
-        title="Software Developed"
-        intro="Software projects completed throughout college, grouped by academic year."
-      />
+    <SectionContainer id="projects" tone="clear">
+      <div className="mb-16 flex flex-wrap items-baseline justify-between gap-4">
+        <SectionHeader label="Projects" title="Projects Developed" />
+        <Reveal as="span" className="text-label text-muted uppercase">
+          {projects.length} projects
+        </Reveal>
+      </div>
 
-      <div className="flex flex-col gap-16">
-        {projectGroups.map((group) => (
-          <div key={group.id}>
-            <h3 className="mb-6 border-b border-line pb-3 text-xl font-semibold text-ink">
-              {group.year}
-            </h3>
-
-            <div className="grid gap-6 md:grid-cols-2">
-              {group.projects.map((project) => (
-                <ProjectCard key={project.id} project={project} />
-              ))}
-            </div>
-          </div>
+      <div className="grid gap-8 md:grid-cols-2">
+        {projects.map((project, index) => (
+          <Reveal key={project.id} delay={index * 100}>
+            <ProjectCard project={project} />
+          </Reveal>
         ))}
       </div>
     </SectionContainer>
