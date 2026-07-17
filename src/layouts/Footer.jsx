@@ -2,6 +2,7 @@ import { Mail, ExternalLink } from "lucide-react";
 import AmbientVideo from "../components/AmbientVideo";
 import { GithubIcon, LinkedinIcon } from "../components/icons/BrandIcons";
 import { navItems, profile } from "../data/navigation";
+import gojoIcon from "../assets/icons/gojo.png";
 
 const socialLinks = [
   { id: "email", label: "Email", href: `mailto:${profile.email}`, Icon: Mail },
@@ -64,6 +65,14 @@ function Footer() {
                 </a>
               </li>
             ))}
+            <li>
+              <img
+                src={gojoIcon}
+                alt=""
+                aria-hidden="true"
+                className="h-5 w-5 rounded-full object-cover opacity-50 transition-all duration-300 [filter:grayscale(100%)_brightness(1.5)] hover:opacity-100 hover:[filter:none]"
+              />
+            </li>
           </ul>
         </div>
       </div>

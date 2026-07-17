@@ -3,7 +3,6 @@ import SectionContainer from "../layouts/SectionContainer";
 import SectionHeader from "../components/SectionHeader";
 import ImagePlaceholder from "../components/ImagePlaceholder";
 import Reveal from "../components/Reveal";
-import FloatingNote from "../components/FloatingNote";
 import TagList from "../components/TagList";
 import { useLightbox } from "../components/lightboxContext";
 import { capstone } from "../data/capstone";
@@ -17,12 +16,6 @@ function Capstone() {
       <div className="relative">
         <SectionHeader label="Capstone" title="Capstone Project" align="right" className="mb-16" />
 
-        {/* Points down at the card below it. */}
-        <FloatingNote
-          text="Final year project"
-          direction="down-left"
-          className="top-0 left-0"
-        />
       </div>
 
       <Reveal className="relative">

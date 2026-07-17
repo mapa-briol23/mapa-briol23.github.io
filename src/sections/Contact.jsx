@@ -3,7 +3,6 @@ import { GithubIcon, LinkedinIcon } from "../components/icons/BrandIcons";
 import SectionContainer from "../layouts/SectionContainer";
 import SectionHeader from "../components/SectionHeader";
 import Reveal from "../components/Reveal";
-import FloatingNote from "../components/FloatingNote";
 import { profile } from "../data/navigation";
 
 const contactMethods = [
@@ -53,12 +52,6 @@ function Contact() {
       <div className="relative">
         <SectionHeader label="Contact" title="Get in Touch" align="center" className="mb-16" />
 
-        {/* Points down at the contact cards. */}
-        <FloatingNote
-          text="Let's connect"
-          direction="down-right"
-          className="top-0 left-0 xl:left-8"
-        />
       </div>
 
       <ul className="flex flex-col divide-y divide-secondary/10 sm:flex-row sm:divide-x sm:divide-y-0">

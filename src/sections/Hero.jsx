@@ -1,7 +1,6 @@
 import { ArrowDown, Download } from "lucide-react";
 import Button from "../components/Button";
 import Reveal from "../components/Reveal";
-import FloatingNote from "../components/FloatingNote";
 import { Arc, ConcentricCircles, Orb } from "../components/Decor";
 import { profile } from "../data/navigation";
 
@@ -55,12 +54,6 @@ function Hero() {
               className="absolute -inset-x-16 -inset-y-16 -z-10 bg-black/25 backdrop-blur-[1px] [mask-image:radial-gradient(70%_65%_at_36%_50%,#000_35%,transparent_100%)]"
             />
 
-            {/* Points down at the intro, where the stack is named. */}
-            <FloatingNote
-              text="Built with React"
-              direction="down-left"
-              className="top-[46%] right-0 xl:right-[-2rem]"
-            />
             <Reveal as="p" className="mb-6 flex items-center gap-3 text-label text-secondary uppercase">
               <span aria-hidden="true" className="h-px w-8 bg-secondary" />
               Academic Web Portfolio
