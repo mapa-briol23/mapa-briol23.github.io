@@ -1,3 +1,8 @@
+import capDashboard from "../assets/images/capstone/why-pii-dashboard.png";
+import capFindings from "../assets/images/capstone/why-pii-findings.png";
+import capCaptivePortal from "../assets/images/capstone/why-pii-captive-portal.png";
+import capAccounts from "../assets/images/capstone/why-pii-accounts.png";
+
 export const capstone = {
   title: "Why-Pii",
   year: "Fourth Year",
@@ -12,9 +17,9 @@ export const capstone = {
   software: ["React", "Node.js", "Tailwind CSS", "Chart.js", "Supabase"],
   hardware: ["Raspberry Pi"],
   screenshots: [
-    { id: "cap-1", label: "Dashboard" },
-    { id: "cap-2", label: "Findings & Recommendations" },
-    { id: "cap-3", label: "Captive Portal" },
-    { id: "cap-4", label: "Accounts Management" },
+    { id: "cap-1", label: "Dashboard", image: capDashboard },
+    { id: "cap-2", label: "Findings & Recommendations", image: capFindings },
+    { id: "cap-3", label: "Captive Portal", image: capCaptivePortal },
+    { id: "cap-4", label: "Accounts Management", image: capAccounts },
   ],
 };

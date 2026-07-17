@@ -5,10 +5,13 @@ import ImagePlaceholder from "../components/ImagePlaceholder";
 import Reveal from "../components/Reveal";
 import FloatingNote from "../components/FloatingNote";
 import TagList from "../components/TagList";
+import { useLightbox } from "../components/lightboxContext";
 import { capstone } from "../data/capstone";
 
 /** The centrepiece: one wide glass card lit from behind by a slowly turning aura. */
 function Capstone() {
+  const openLightbox = useLightbox();
+
   return (
     <SectionContainer id="capstone" tone="mid">
       <div className="relative">
@@ -68,13 +71,24 @@ function Capstone() {
             </div>
 
             <div className="grid gap-4 sm:grid-cols-2 lg:order-1">
-              {capstone.screenshots.map((screenshot) => (
-                <ImagePlaceholder
-                  key={screenshot.id}
-                  label={screenshot.label}
-                  className="aspect-4/3 w-full rounded-xl"
-                />
-              ))}
+              {capstone.screenshots.map((screenshot) =>
+                screenshot.image ? (
+                  <img
+                    key={screenshot.id}
+                    src={screenshot.image}
+                    alt={screenshot.label}
+                    loading="lazy"
+                    onClick={() => openLightbox(screenshot.image, screenshot.label)}
+                    className="aspect-4/3 w-full cursor-pointer rounded-xl object-cover transition duration-300 hover:scale-[1.02] hover:opacity-85"
+                  />
+                ) : (
+                  <ImagePlaceholder
+                    key={screenshot.id}
+                    label={screenshot.label}
+                    className="aspect-4/3 w-full rounded-xl"
+                  />
+                )
+              )}
             </div>
           </div>
         </article>

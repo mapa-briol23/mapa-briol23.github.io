@@ -1,3 +1,8 @@
+import googleCloudFoundations from "../assets/images/certificates/google-cloud-foundations.png";
+import comptiaTechPlus from "../assets/images/certificates/comptia-tech-plus.png";
+import ciscoEthicalHacker from "../assets/images/certificates/cisco-ethical-hacker.png";
+import ciscoCcnaIntro from "../assets/images/certificates/cisco-ccna-intro.png";
+
 export const certificates = [
   {
     id: "cert-1",
@@ -5,6 +10,7 @@ export const certificates = [
     organization: "Google",
     date: "February 2026",
     imageLabel: "Google Cloud Computing Foundations Certificate",
+    image: googleCloudFoundations,
   },
   {
     id: "cert-2",
@@ -12,6 +18,7 @@ export const certificates = [
     organization: "CompTIA",
     date: "December 2025",
     imageLabel: "CompTIA Tech+ Certification",
+    image: comptiaTechPlus,
   },
   {
     id: "cert-3",
@@ -19,6 +26,7 @@ export const certificates = [
     organization: "Cisco Networking Academy",
     date: "September 2025",
     imageLabel: "Cisco Ethical Hacker Certificate",
+    image: ciscoEthicalHacker,
   },
   // Temporarily hidden — TOEIC certificate.
   // {
@@ -34,5 +42,6 @@ export const certificates = [
     organization: "Cisco Networking Academy",
     date: "April 2025",
     imageLabel: "Cisco CCNA Introduction to Networks Certificate",
+    image: ciscoCcnaIntro,
   },
 ];

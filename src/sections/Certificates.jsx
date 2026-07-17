@@ -3,6 +3,7 @@ import SectionHeader from "../components/SectionHeader";
 import ImagePlaceholder from "../components/ImagePlaceholder";
 import Reveal from "../components/Reveal";
 import { Particles } from "../components/Decor";
+import { useLightbox } from "../components/lightboxContext";
 import { certificates } from "../data/certificates";
 
 const particles = [
@@ -13,6 +14,8 @@ const particles = [
 /** Full-width rows instead of a grid: the scan on one side, the metadata on the
     other, the side alternating down the list. A hairline separates each. */
 function Certificates() {
+  const openLightbox = useLightbox();
+
   return (
     <SectionContainer id="certificates" tone="mid">
       <Particles positions={particles} />
@@ -27,10 +30,20 @@ function Certificates() {
                 index % 2 === 1 ? "sm:flex-row-reverse" : ""
               }`}
             >
-              <ImagePlaceholder
-                label={certificate.imageLabel}
-                className="aspect-4/3 w-full shrink-0 rounded-xl sm:w-[200px]"
-              />
+              {certificate.image ? (
+                <img
+                  src={certificate.image}
+                  alt={certificate.imageLabel}
+                  loading="lazy"
+                  onClick={() => openLightbox(certificate.image, certificate.imageLabel)}
+                  className="aspect-4/3 w-full shrink-0 cursor-pointer rounded-xl object-cover transition duration-300 hover:scale-[1.02] hover:opacity-85 sm:w-[200px]"
+                />
+              ) : (
+                <ImagePlaceholder
+                  label={certificate.imageLabel}
+                  className="aspect-4/3 w-full shrink-0 rounded-xl sm:w-[200px]"
+                />
+              )}
 
               <div className={index % 2 === 1 ? "sm:text-right" : ""}>
                 <h3 className="text-card text-ink transition duration-300 group-hover:text-secondary">

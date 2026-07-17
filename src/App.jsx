@@ -5,6 +5,7 @@ import { ShimmerDivider } from "./components/Decor";
 import AmbientVideo from "./components/AmbientVideo";
 import CallToAction from "./components/CallToAction";
 import { GithubIcon } from "./components/icons/BrandIcons";
+import { LightboxProvider } from "./components/Lightbox";
 import { profile } from "./data/navigation";
 import Hero from "./sections/Hero";
 import About from "./sections/About";
@@ -19,7 +20,7 @@ import Contact from "./sections/Contact";
 
 function App() {
   return (
-    <>
+    <LightboxProvider>
       {/* The page-wide background: the video holds still while the page scrolls over it,
           and every section above is semi-opaque so it reads through. It carries no scrim
           of its own — the sections each do that for their own type.
@@ -83,7 +84,7 @@ function App() {
       </main>
 
       <Footer />
-    </>
+    </LightboxProvider>
   );
 }
 

@@ -1,3 +1,10 @@
+import rEaseciteMain from "../assets/images/projects/r-easecite-main.png";
+import cryptographyProgram from "../assets/images/projects/cryptography-program.png";
+import carebyDashboard from "../assets/images/projects/careby-dashboard.png";
+import kawayanVillasPrototype from "../assets/images/projects/kawayan-villas-prototype.png";
+import whyPiiDashboard from "../assets/images/projects/why-pii-dashboard.png";
+import ccisEventEnlistment from "../assets/images/projects/ccis-event-enlistment.png";
+
 export const projectGroups = [
   {
     id: "first-year",
@@ -15,6 +22,7 @@ export const projectGroups = [
           "Quiz and participation tracking",
         ],
         screenshotLabel: "R-EaseCite main screen",
+        image: rEaseciteMain,
         software: ["Xamarin", "C#", "Visual Studio"],
       },
       {
@@ -29,6 +37,7 @@ export const projectGroups = [
           "Input validation",
         ],
         screenshotLabel: "Cryptography program interface",
+        image: cryptographyProgram,
         software: ["C#", "Visual Studio"],
       },
     ],
@@ -49,6 +58,7 @@ export const projectGroups = [
           "Secure account management",
         ],
         screenshotLabel: "CareBy appointment dashboard",
+        image: carebyDashboard,
         software: ["ASP.NET Web Forms", "C#", "SQL Server", "Visual Studio"],
       },
       {
@@ -59,6 +69,7 @@ export const projectGroups = [
           "An Android application developed to display departmental event schedules and provide students with organized event information.",
         features: ["Multi-day event schedules", "Student profile page", "Easy navigation"],
         screenshotLabel: "Event enlistment app",
+        image: ccisEventEnlistment,
         software: ["Xamarin", "C#", "Visual Studio"],
       },
     ],
@@ -79,6 +90,7 @@ export const projectGroups = [
           "Data visualization",
         ],
         screenshotLabel: "Kawayan Villas booking prototype",
+        image: kawayanVillasPrototype,
         software: ["Figma"],
       },
     ],
@@ -99,6 +111,7 @@ export const projectGroups = [
           "Visualizes security scores and scan results",
         ],
         screenshotLabel: "Why-Pii dashboard",
+        image: whyPiiDashboard,
         software: ["React", "Node.js", "Tailwind CSS", "Chart.js", "Supabase"],
         hardware: ["Raspberry Pi"],
       },
