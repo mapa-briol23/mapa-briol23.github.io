@@ -2,6 +2,7 @@ import { Download } from "lucide-react";
 import Navbar from "./layouts/Navbar";
 import Footer from "./layouts/Footer";
 import { ShimmerDivider } from "./components/Decor";
+import AmbientVideo from "./components/AmbientVideo";
 import CallToAction from "./components/CallToAction";
 import { GithubIcon } from "./components/icons/BrandIcons";
 import { profile } from "./data/navigation";
@@ -19,8 +20,20 @@ import Contact from "./sections/Contact";
 function App() {
   return (
     <>
-      {/* The page-wide wash every section is layered over. */}
-      <div aria-hidden="true" className="aurora" />
+      {/* The page-wide background: the video holds still while the page scrolls over it,
+          and every section above is semi-opaque so it reads through. It carries no scrim
+          of its own — the sections each do that for their own type.
+
+          The fallback is not decoration. The hero is dark and sets white type over this
+          layer, so the layer has to stay dark even on the screens the video skips — below
+          768px, or when the file fails. Without it the hero paints white on pale, and the
+          sections' scrims land on nothing. */}
+      <AmbientVideo
+        src="/videos/hero-bg.mp4"
+        preload="auto"
+        fallback="linear-gradient(to bottom right, #0f172a, #172554 60%, #1e3a8a)"
+        className="fixed inset-0 z-0"
+      />
 
       <Navbar />
 

@@ -16,7 +16,11 @@
   --color-haze: #ebf4ff;
   --color-line: #e5e7eb;
   --color-ink: #0f172a;
-  --color-muted: #64748b;
+  /* Body copy no longer sits on flat white — the sections are semi-opaque over
+     near-black footage, which drags their composited surface down toward #d0d0d0.
+     The old #64748b measured 5:1 on pure white but only ~2.7:1 there, under the
+     WCAG AA floor. This holds ~4.6:1 against the darkest frames. */
+  --color-muted: #475569;
 
   --text-hero: 4.5rem;
   --text-hero--line-height: 1;
@@ -84,45 +88,12 @@
 }
 
 /* ---------------------------------------------------------------------------
-   Atmospheric motion. Animated element budget (15 total, page-wide — the cap):
-   1 aurora + 4 hero orbs + 1 capstone aura + 2 dividers + 4 particles
-   + 2 CTA orbs + 1 footer wave.
+   Atmospheric motion. Animated element budget (13 total, page-wide — the cap):
+   4 hero orbs + 1 capstone aura + 2 dividers + 4 particles + 2 CTA orbs.
    Every animation below drives transform/opacity/background-position only.
    --------------------------------------------------------------------------- */
 
-/* 1. Global aurora — a fixed wash that breathes behind the whole page. */
-.aurora {
-  position: fixed;
-  inset: 0;
-  z-index: -10;
-  pointer-events: none;
-  opacity: 0.5;
-  background:
-    radial-gradient(60% 50% at 20% 15%, var(--color-haze) 0%, transparent 60%),
-    radial-gradient(50% 45% at 80% 30%, var(--color-mist) 0%, transparent 55%),
-    radial-gradient(65% 55% at 50% 85%, #f5f8ff 0%, transparent 60%), #ffffff;
-  background-size: 200% 200%;
-  animation: aurora-drift 36s ease-in-out infinite;
-  will-change: background-position;
-}
-
-@keyframes aurora-drift {
-  0%,
-  100% {
-    background-position:
-      0% 0%,
-      100% 0%,
-      50% 100%;
-  }
-  50% {
-    background-position:
-      100% 100%,
-      0% 60%,
-      20% 0%;
-  }
-}
-
-/* 2. Hero orbs — diffused light, never circles. Four cycle lengths, never in sync. */
+/* 1. Hero orbs — diffused light, never circles. Four cycle lengths, never in sync. */
 .orb {
   position: absolute;
   border-radius: 9999px;
@@ -248,38 +219,7 @@
   }
 }
 
-/* 6. Footer wave — layered gradients sliding at different speeds. */
-.footer-wave {
-  position: absolute;
-  inset: 0;
-  z-index: -10;
-  pointer-events: none;
-  background:
-    radial-gradient(70% 120% at 15% 100%, var(--color-haze) 0%, transparent 60%),
-    radial-gradient(60% 110% at 55% 100%, #dbeafe 0%, transparent 55%),
-    radial-gradient(70% 120% at 90% 100%, var(--color-mist) 0%, transparent 60%);
-  background-size: 200% 200%;
-  animation: footer-swell 24s ease-in-out infinite;
-  will-change: background-position;
-}
-
-@keyframes footer-swell {
-  0%,
-  100% {
-    background-position:
-      0% 100%,
-      50% 100%,
-      100% 100%;
-  }
-  50% {
-    background-position:
-      30% 100%,
-      70% 100%,
-      60% 100%;
-  }
-}
-
-/* 7. Particles — dust rising behind the Skills and Certificates cards. */
+/* 6. Particles — dust rising behind the Skills and Certificates cards. */
 .particle {
   position: absolute;
   border-radius: 9999px;
@@ -326,13 +266,11 @@
     scroll-behavior: auto;
   }
 
-  .aurora,
   .orb,
   .shimmer,
   .aura,
   .particle,
-  .cta-orb,
-  .footer-wave {
+  .cta-orb {
     animation: none !important;
   }
 

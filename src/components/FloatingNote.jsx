@@ -10,11 +10,18 @@ const arrowTips = {
   "up-right": "M 32 12 L 41 6 L 33 1",
 };
 
+/* A white pill reads as grey against the hero's near-black footage, and the blue type
+   on it goes muddy. The dark tone is the same aside drawn for that band instead. */
+const tones = {
+  light: "border-accent/50 bg-white/70 text-primary",
+  dark: "border-white/25 bg-white/10 text-accent",
+};
+
 /**
  * A small annotation that points at nearby content — an editorial aside, not a sticker.
  * Hidden below `lg`, where the layout is too narrow for it to land anywhere sensible.
  */
-function FloatingNote({ text, direction = "down-right", className = "" }) {
+function FloatingNote({ text, direction = "down-right", tone = "light", className = "" }) {
   return (
     <div
       aria-hidden="true"
@@ -22,7 +29,9 @@ function FloatingNote({ text, direction = "down-right", className = "" }) {
         direction === "down-left" ? "items-end" : "items-start"
       } ${className}`}
     >
-      <span className="rounded-full border border-accent/50 bg-white/70 px-3.5 py-1.5 text-label text-primary uppercase backdrop-blur-sm">
+      <span
+        className={`rounded-full border px-3.5 py-1.5 text-label uppercase backdrop-blur-sm ${tones[tone]}`}
+      >
         {text}
       </span>
       <svg

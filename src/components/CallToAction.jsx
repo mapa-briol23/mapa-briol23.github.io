@@ -9,6 +9,9 @@ const tones = {
   light: {
     overlay: "rgba(37,99,235,0.05)",
     fallback: undefined,
+    /* Semi-opaque like the sections either side, so the page-wide video reads through
+       the pause without taking the ink type with it. */
+    surface: "bg-white/80",
     heading: "text-ink",
     orb: "from-accent/30 via-secondary/10",
   },
@@ -17,6 +20,9 @@ const tones = {
     /* Stands in for the footage below 768px, so the scrim above lands on dark rather
        than on the bare page — which is what turns the band muddy instead of deep. */
     fallback: "linear-gradient(to bottom right, #0f172a, #172554 60%, #1e3a8a)",
+    /* Opaque: this band runs its own footage, and the page-wide video must not show
+       through behind it. Two loops at once is noise, not accent. */
+    surface: "bg-ink",
     heading: "text-white",
     orb: "from-white/10 via-secondary/10",
   },
@@ -42,11 +48,11 @@ function CallToAction({
   videoSrc,
   tone = "light",
 }) {
-  const { overlay, fallback, heading, orb } = tones[tone];
+  const { overlay, fallback, surface, heading, orb } = tones[tone];
 
   return (
     <section
-      className={`relative isolate overflow-hidden py-20 lg:py-28 ${
+      className={`relative z-1 overflow-hidden py-20 lg:py-28 ${surface} ${
         videoSrc ? "flex min-h-[22rem] items-center" : ""
       }`}
     >

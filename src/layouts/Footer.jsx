@@ -11,19 +11,20 @@ const socialLinks = [
 
 function Footer() {
   return (
-    <footer className="relative isolate overflow-hidden border-t border-line/70 bg-white/60 backdrop-blur-sm">
-      {/* A slow swell of light rising from the bottom edge of the page — and, where it
-          loads, the wave video breaking over it. */}
-      <div aria-hidden="true" className="footer-wave" />
+    <footer className="relative z-1 overflow-hidden border-t border-white/10 bg-ink">
+      {/* The wave video breaking over the bottom edge of the page, under a scrim deep
+          enough to carry white type across the loop's brightest frames. The fallback
+          stands in for the footage below 768px, where the video never loads. */}
       <AmbientVideo
         src="/videos/footer-wave.mp4"
-        overlay="linear-gradient(to bottom, rgba(255,255,255,0.9), rgba(248,250,252,0.95))"
+        overlay="linear-gradient(to bottom, rgba(15,23,42,0.42), rgba(23,37,84,0.5))"
+        fallback="linear-gradient(to bottom right, #0f172a, #172554 60%, #1e3a8a)"
       />
       <div className="mx-auto flex max-w-[1200px] flex-col gap-12 px-6 py-20 lg:px-8">
         <div className="flex flex-col gap-10 md:flex-row md:items-start md:justify-between">
           <div>
-            <p className="text-card text-ink">{profile.fullName}</p>
-            <p className="mt-2 text-sm text-muted">
+            <p className="text-card text-white">{profile.fullName}</p>
+            <p className="mt-2 text-sm text-white/70">
               {profile.degree} · {profile.school}
             </p>
           </div>
@@ -34,7 +35,7 @@ function Footer() {
                 <li key={item.id}>
                   <a
                     href={`#${item.id}`}
-                    className="text-sm text-muted transition duration-200 hover:text-primary"
+                    className="text-sm text-white/70 transition duration-200 hover:text-white"
                   >
                     {item.label}
                   </a>
@@ -44,8 +45,8 @@ function Footer() {
           </nav>
         </div>
 
-        <div className="flex flex-col gap-5 border-t border-line/70 pt-8 sm:flex-row sm:items-center sm:justify-between">
-          <p className="text-sm text-muted">© {new Date().getFullYear()} {profile.fullName}</p>
+        <div className="flex flex-col gap-5 border-t border-white/15 pt-8 sm:flex-row sm:items-center sm:justify-between">
+          <p className="text-sm text-white/70">© {new Date().getFullYear()} {profile.fullName}</p>
 
           <ul className="flex items-center gap-2 sm:justify-end">
             {socialLinks.map(({ id, label, href, Icon }) => (
@@ -55,7 +56,7 @@ function Footer() {
                   aria-label={label}
                   target={id === "email" ? undefined : "_blank"}
                   rel={id === "email" ? undefined : "noreferrer"}
-                  className="inline-flex rounded-full p-2.5 text-muted transition duration-300 hover:bg-haze hover:text-primary"
+                  className="inline-flex rounded-full p-2.5 text-white transition duration-300 hover:bg-white/15"
                 >
                   <Icon className="h-5 w-5" aria-hidden="true" />
                 </a>
