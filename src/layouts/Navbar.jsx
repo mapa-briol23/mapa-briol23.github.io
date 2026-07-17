@@ -45,7 +45,13 @@ function Navbar() {
         </ul>
 
         <div className="flex items-center gap-3">
-          <Button as="a" href={profile.cvPath} download className="hidden px-5 py-2.5 text-sm sm:inline-flex">
+          {/* Below sm the CV link lives in the menu instead. */}
+          <Button
+            as="a"
+            href={profile.cvPath}
+            download
+            className="hidden px-5 py-2.5 text-sm sm:inline-flex"
+          >
             <Download className="h-4 w-4" aria-hidden="true" />
             Download CV
           </Button>

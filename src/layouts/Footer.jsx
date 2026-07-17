@@ -1,4 +1,5 @@
 import { Mail } from "lucide-react";
+import AmbientVideo from "../components/AmbientVideo";
 import { GithubIcon, LinkedinIcon } from "../components/icons/BrandIcons";
 import { navItems, profile } from "../data/navigation";
 
@@ -10,7 +11,14 @@ const socialLinks = [
 
 function Footer() {
   return (
-    <footer className="relative border-t border-line/70 bg-white/60 backdrop-blur-sm">
+    <footer className="relative isolate overflow-hidden border-t border-line/70 bg-white/60 backdrop-blur-sm">
+      {/* A slow swell of light rising from the bottom edge of the page — and, where it
+          loads, the wave video breaking over it. */}
+      <div aria-hidden="true" className="footer-wave" />
+      <AmbientVideo
+        src="/videos/footer-wave.mp4"
+        overlay="linear-gradient(to bottom, rgba(255,255,255,0.9), rgba(248,250,252,0.95))"
+      />
       <div className="mx-auto flex max-w-[1200px] flex-col gap-12 px-6 py-20 lg:px-8">
         <div className="flex flex-col gap-10 md:flex-row md:items-start md:justify-between">
           <div>

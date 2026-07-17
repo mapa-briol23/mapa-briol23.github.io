@@ -49,7 +49,27 @@ Odoo uses small floating badges with curved SVG arrows pointing toward content. 
 - On mobile: hide them or reduce size to avoid clutter.
 
 ## 2.4 Looping Background Videos / Animated Backgrounds
-Odoo uses looping 3D-rendered videos (jellyfish, fish, waves) as ambient section backgrounds. Since this portfolio cannot use video files, **replicate this effect using pure CSS animations**:
+Odoo uses looping 3D-rendered videos (jellyfish, fish, waves) as ambient section backgrounds. This portfolio does the same in three places, and uses CSS animation everywhere else.
+
+### Background Videos
+Three looping MP4s live in `public/videos/` and are mounted by the shared `AmbientVideo` component:
+
+| Section | File | Overlay | Preload |
+|---|---|---|---|
+| Hero | `hero-bg.mp4` | `linear-gradient(to bottom, rgba(255,255,255,0.85), rgba(248,250,252,0.92))` | `auto` |
+| CV call-to-action | `section-accent.mp4` | `linear-gradient(to bottom, rgba(15,23,42,0.62), rgba(23,37,84,0.68))` | `none` |
+| Footer | `footer-wave.mp4` | `linear-gradient(to bottom, rgba(255,255,255,0.9), rgba(248,250,252,0.95))` | `none` |
+
+Each video is `muted`, `loop`, `playsInline`, `object-fit: cover`, and sits at `z-index: -10` beneath its section's content, tinted by the overlay above so text stays readable.
+
+**The overlay must match the footage, not the palette.** The accent clip is near-black, so it takes a dark scrim and white type (`CallToAction` `tone="dark"`) — the one band on the page that inverts. The hero and footer clips are light and take white washes with ink type. An overlay chosen for the palette rather than the footage is how type ends up invisible: the original `rgba(37,99,235,0.05)` wash left ink type sitting unreadable on the near-black accent clip. Swapping any of these three files means rechecking its overlay against the new footage.
+
+`AmbientVideo` decides whether to mount the `<video>` at all, rather than hiding it with a class — a hidden video still downloads. It stays out of the DOM entirely below 768px and under `prefers-reduced-motion: reduce`. An Intersection Observer plays it on entering the viewport and pauses it on leaving. If a file is missing or the codec is refused, `onError` unmounts it and the section falls back to the CSS animation beneath.
+
+**Testing note:** headless Chrome forces `prefers-reduced-motion: reduce`, so videos will correctly refuse to mount there. Emulate `no-preference` via CDP `Emulation.setEmulatedMedia` or headless checks report a false negative.
+
+### CSS Animations
+The effects below are **not** video. They carry the rest of the page, and also serve as the fallback layer beneath the three videos above:
 
 ### Hero Background — "Infinity Atmosphere"
 - 3–4 large gradient orbs (300–500px diameter) that slowly drift and pulse.
@@ -332,8 +352,9 @@ Use Intersection Observer (no external libraries). Every section and card fades 
 - `will-change: transform` on animated elements.
 - No more than 15 total animated elements across the page.
 - No JavaScript animation libraries — pure CSS + Intersection Observer.
-- No video files, no canvas elements, no WebGL.
-- Lighthouse performance score target: 90+.
+- No canvas elements, no WebGL.
+- Background video is confined to the three sections in 2.4, and only via `AmbientVideo`, which keeps it off mobile and out of reduced-motion. Everywhere else, use CSS.
+- Lighthouse performance score target: 90+ on mobile, where no video loads. Desktop carries the video payload by design and will score lower; judge desktop on whether the hero still paints and stays interactive while the video buffers, not on the raw number.
 - All images lazy-loaded (`loading="lazy"`).
 
 ---

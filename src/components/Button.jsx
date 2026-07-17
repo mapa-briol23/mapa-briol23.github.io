@@ -1,5 +1,11 @@
 const base =
-  "inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5 text-base font-semibold transition duration-300 ease-out focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary";
+  "items-center justify-center gap-2 rounded-full px-7 py-3.5 text-base font-semibold transition duration-300 ease-out focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary";
+
+/* Matches a Tailwind display utility, with or without a variant prefix (`hidden`,
+   `sm:inline-flex`). Anchored on a class boundary so `items-center` and friends
+   cannot match. */
+const displayUtility =
+  /(?:^|\s)(?:[\w-]+:)*(?:block|inline-block|inline|flex|inline-flex|grid|inline-grid|contents|hidden)(?=\s|$)/;
 
 const variants = {
   primary:
@@ -9,8 +15,14 @@ const variants = {
 };
 
 function Button({ as: Component = "button", variant = "primary", className = "", children, ...props }) {
+  /* Two display utilities in one class list do not resolve by intent — the class
+     attribute is unordered, so the stylesheet decides, and the caller silently loses.
+     Standing our own down whenever the caller brings one keeps `hidden sm:inline-flex`
+     (and anything like it) meaning what it reads as. */
+  const display = displayUtility.test(className) ? "" : "inline-flex";
+
   return (
-    <Component className={`${base} ${variants[variant]} ${className}`} {...props}>
+    <Component className={`${display} ${base} ${variants[variant]} ${className}`} {...props}>
       {children}
     </Component>
   );

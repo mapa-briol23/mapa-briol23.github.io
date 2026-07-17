@@ -1,6 +1,8 @@
 import { ArrowDown, Download } from "lucide-react";
+import AmbientVideo from "../components/AmbientVideo";
 import Button from "../components/Button";
 import Reveal from "../components/Reveal";
+import FloatingNote from "../components/FloatingNote";
 import { Arc, ConcentricCircles, Orb } from "../components/Decor";
 import { profile } from "../data/navigation";
 
@@ -10,6 +12,14 @@ function Hero() {
       id="home"
       className="relative isolate flex min-h-svh items-center overflow-hidden pt-32 pb-24 lg:pt-40 lg:pb-32"
     >
+      {/* The deepest layer: motion the orbs then drift over. Eager, since it is
+          the first thing on screen and has no earlier paint to wait behind. */}
+      <AmbientVideo
+        src="/videos/hero-bg.mp4"
+        preload="auto"
+        overlay="linear-gradient(to bottom, rgba(255,255,255,0.85), rgba(248,250,252,0.92))"
+      />
+
       {/* Diffused light, scattered asymmetrically and never quite settling. */}
       <div aria-hidden="true" className="absolute inset-0 -z-10 overflow-hidden">
         <Orb
@@ -39,11 +49,17 @@ function Hero() {
 
       <div className="mx-auto w-full max-w-[1200px] px-6 lg:px-8">
         <div className="grid items-center gap-16 lg:grid-cols-[minmax(0,3fr)_minmax(0,2fr)]">
-          <div>
-{/*             <Reveal as="p" className="mb-6 flex items-center gap-3 text-label text-primary uppercase">
+          <div className="relative">
+            {/* Points down at the intro, where the stack is named. */}
+            <FloatingNote
+              text="Built with React"
+              direction="down-left"
+              className="top-[46%] right-0 xl:right-[-2rem]"
+            />
+            <Reveal as="p" className="mb-6 flex items-center gap-3 text-label text-primary uppercase">
               <span aria-hidden="true" className="h-px w-8 bg-accent" />
               Academic Web Portfolio
-            </Reveal> */}
+            </Reveal>
 
             <Reveal delay={80}>
               <h1 className="text-5xl font-extrabold tracking-tight text-balance text-ink sm:text-6xl lg:text-hero">
