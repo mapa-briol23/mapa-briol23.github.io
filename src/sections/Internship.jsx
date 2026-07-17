@@ -41,7 +41,7 @@ function Internship() {
             <p className="mt-4 text-label text-secondary uppercase">
               {internship.startDate} – {internship.endDate}
             </p>
-            <p className="mt-4 max-w-2xl text-body text-muted">{internship.description}</p>
+            <p className="mt-4 text-body text-muted">{internship.description}</p>
 
             <div className="mt-8">
               <TagList label="Tools Used" items={internship.tools} />
