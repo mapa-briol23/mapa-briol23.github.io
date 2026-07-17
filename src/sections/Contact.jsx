@@ -2,7 +2,6 @@ import { Mail } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "../components/icons/BrandIcons";
 import SectionContainer from "../layouts/SectionContainer";
 import SectionHeader from "../components/SectionHeader";
-import Card from "../components/Card";
 import Reveal from "../components/Reveal";
 import FloatingNote from "../components/FloatingNote";
 import { profile } from "../data/navigation";
@@ -54,24 +53,22 @@ function Contact() {
         />
       </div>
 
-      <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <ul className="flex flex-col divide-y divide-secondary/10 sm:flex-row sm:divide-x sm:divide-y-0">
         {contactMethods.map(({ id, label, value, href, Icon, external }, index) => (
-          <Reveal key={id} as="li" delay={index * 100}>
-            <Card
-              as="a"
+          <Reveal key={id} as="li" delay={index * 100} className="flex-1">
+            <a
               href={href}
               target={external ? "_blank" : undefined}
               rel={external ? "noreferrer" : undefined}
-              className="group flex h-full items-center gap-4"
+              className="group flex flex-col items-center gap-3 px-6 py-8 text-center"
             >
-              <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-secondary/10 text-secondary ring-1 ring-secondary/15 transition duration-300 group-hover:bg-secondary/20">
-                <Icon className="h-5 w-5" aria-hidden="true" />
-              </span>
-              <span className="min-w-0">
-                <span className="block text-sm font-semibold text-ink">{label}</span>
-                <span className="block truncate text-sm text-muted">{value}</span>
-              </span>
-            </Card>
+              <Icon
+                className="h-8 w-8 text-secondary transition-transform duration-300 ease-out group-hover:scale-110"
+                aria-hidden="true"
+              />
+              <span className="block text-sm font-semibold text-ink">{label}</span>
+              <span className="block max-w-full truncate text-sm text-muted">{value}</span>
+            </a>
           </Reveal>
         ))}
       </ul>

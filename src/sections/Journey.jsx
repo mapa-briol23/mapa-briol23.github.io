@@ -12,12 +12,7 @@ import { journey } from "../data/journey";
 function Journey() {
   return (
     <SectionContainer id="journey" tone="light">
-      <SectionHeader
-        label="Journey"
-        title="College Journey"
-        intro="Academic progression from the first year to the fourth year."
-        className="mb-20"
-      />
+      <SectionHeader label="Journey" title="College Journey" align="center" className="mb-20" />
 
       <ol className="relative flex flex-col gap-10 lg:gap-6">
         {/* The spine the nodes sit on: left-aligned on mobile, centred once steps alternate. */}

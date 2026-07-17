@@ -22,7 +22,7 @@ function FloatingNote({ text, direction = "down-right", className = "" }) {
         direction === "down-left" ? "items-end" : "items-start"
       } ${className}`}
     >
-      <span className="rounded-full border border-secondary/12 bg-pane/60 px-3.5 py-1.5 text-label text-secondary uppercase backdrop-blur-md">
+      <span className="rounded-full bg-pane/40 px-3.5 py-1.5 text-label text-secondary uppercase backdrop-blur-[8px]">
         {text}
       </span>
       <svg

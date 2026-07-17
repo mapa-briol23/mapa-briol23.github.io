@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { Download, Menu, X } from "lucide-react";
 import Button from "../components/Button";
 import useActiveSection from "../hooks/useActiveSection";
@@ -8,12 +8,47 @@ const sectionIds = navItems.map((item) => item.id);
 
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [underline, setUnderline] = useState({ left: 0, width: 0 });
   const activeId = useActiveSection(sectionIds);
+
+  const listRef = useRef(null);
+  const linkRefs = useRef({});
 
   const closeMenu = () => setIsMenuOpen(false);
 
+  // Solid-once-past-the-hero: transparent over the landing view, frosted after.
+  useEffect(() => {
+    const onScroll = () => setIsScrolled(window.scrollY > window.innerHeight - 80);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  // Slide the underline under the active link. Measured against the list so the
+  // value is a plain left/width the CSS transition animates between. useLayoutEffect
+  // so the first placement lands before paint rather than flashing at 0.
+  useLayoutEffect(() => {
+    const link = linkRefs.current[activeId];
+    const list = listRef.current;
+    if (!link || !list) return;
+
+    const measure = () =>
+      setUnderline({ left: link.offsetLeft, width: link.offsetWidth });
+
+    measure();
+    window.addEventListener("resize", measure);
+    return () => window.removeEventListener("resize", measure);
+  }, [activeId]);
+
+  const headerTone = isScrolled
+    ? "bg-abyss/85 backdrop-blur-xl border-secondary/10"
+    : "bg-transparent border-transparent";
+
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-secondary/10 bg-abyss/85 backdrop-blur-xl">
+    <header
+      className={`navbar-load fixed inset-x-0 top-0 z-50 border-b transition-all duration-[400ms] ease-out ${headerTone}`}
+    >
       <nav
         aria-label="Main"
         className="mx-auto flex h-20 max-w-[1200px] items-center justify-between px-6 lg:px-8"
@@ -22,26 +57,31 @@ function Navbar() {
           Phaula Briol
         </a>
 
-        <ul className="hidden items-center gap-7 lg:flex">
+        <ul ref={listRef} className="relative hidden items-center gap-7 lg:flex">
           {navItems.map((item) => (
             <li key={item.id}>
               <a
+                ref={(el) => {
+                  linkRefs.current[item.id] = el;
+                }}
                 href={`#${item.id}`}
                 aria-current={activeId === item.id ? "true" : undefined}
-                className={`relative text-sm font-medium transition duration-300 hover:text-ink ${
+                className={`relative block text-sm font-medium transition duration-300 ease-out hover:-translate-y-px hover:text-ink ${
                   activeId === item.id ? "text-secondary" : "text-muted"
                 }`}
               >
                 {item.label}
-                {activeId === item.id && (
-                  <span
-                    aria-hidden="true"
-                    className="absolute -bottom-1.5 left-1/2 h-1 w-1 -translate-x-1/2 rounded-full bg-secondary"
-                  />
-                )}
               </a>
             </li>
           ))}
+
+          {underline.width > 0 && (
+            <span
+              aria-hidden="true"
+              className="nav-underline"
+              style={{ left: underline.left, width: underline.width }}
+            />
+          )}
         </ul>
 
         <div className="flex items-center gap-3">

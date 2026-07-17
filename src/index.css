@@ -115,10 +115,58 @@
   will-change: transform, opacity;
 }
 
-.reveal.is-visible {
+/* Directional variants: headings enter from the side they align to, so a
+   right-set heading resolves toward its edge. Declared after `.reveal` so the
+   translate wins the initial state; `.is-visible` clears it either way. */
+.reveal-left {
+  transform: translateX(-30px);
+}
+
+.reveal-right {
+  transform: translateX(30px);
+}
+
+.reveal.is-visible,
+.reveal-left.is-visible,
+.reveal-right.is-visible {
   opacity: 1;
   transform: none;
   will-change: auto;
+}
+
+/* ---------------------------------------------------------------------------
+   Navbar active-link underline — a single 2px light that slides between links.
+   Position and width are driven from JS (measured per link); the slide itself
+   is this transition. Hidden until it has a width, so it never parks at 0,0.
+   --------------------------------------------------------------------------- */
+
+.nav-underline {
+  position: absolute;
+  bottom: -6px;
+  height: 2px;
+  border-radius: 9999px;
+  background: #60a5fa;
+  box-shadow: 0 1px 8px rgba(96, 165, 250, 0.3);
+  transition:
+    left 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+}
+
+/* The navbar drops in once on load, just after first paint. */
+.navbar-load {
+  animation: navbar-drop 0.5s ease-out 0.15s both;
+}
+
+@keyframes navbar-drop {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* ---------------------------------------------------------------------------
@@ -318,10 +366,18 @@
     opacity: 0.12;
   }
 
-  .reveal {
+  .reveal,
+  .reveal-left,
+  .reveal-right {
     opacity: 1;
     transform: none;
     transition: none;
+  }
+
+  .nav-underline,
+  .navbar-load {
+    transition: none;
+    animation: none;
   }
 
   *,

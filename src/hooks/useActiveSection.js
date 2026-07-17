@@ -17,8 +17,11 @@ function useActiveSection(sectionIds) {
           setActiveId(visible.target.id);
         }
       },
-      // Ignore the strip under the fixed navbar and the lower half of the viewport.
-      { rootMargin: "-80px 0px -55% 0px", threshold: [0.1, 0.5, 1] },
+      // Collapse the root to a line across the viewport's middle: the active
+      // section is whichever one that line is inside. This is what keeps the
+      // highlight on the section actually centred on screen — the earlier
+      // bottom-weighted margin flagged the *next* section too early.
+      { rootMargin: "-50% 0px -50% 0px", threshold: 0 },
     );
 
     const elements = sectionIds

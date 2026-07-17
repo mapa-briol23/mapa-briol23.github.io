@@ -66,11 +66,18 @@ function Hero() {
               Academic Web Portfolio
             </Reveal>
 
-            <Reveal delay={80}>
-              <h1 className="text-5xl font-extrabold tracking-tight text-balance text-ink sm:text-6xl lg:text-hero">
-                {profile.fullName}
-              </h1>
-            </Reveal>
+            <h1 className="flex flex-wrap gap-x-[0.28em] text-5xl font-extrabold tracking-tight text-ink sm:text-6xl lg:text-hero">
+              {profile.fullName.split(" ").map((word, index) => (
+                <Reveal
+                  as="span"
+                  key={`${word}-${index}`}
+                  delay={80 + index * 100}
+                  className="inline-block"
+                >
+                  {word}
+                </Reveal>
+              ))}
+            </h1>
 
             <Reveal delay={160} className="mt-8">
               <p className="text-xl font-semibold text-ink sm:text-2xl">{profile.degree}</p>

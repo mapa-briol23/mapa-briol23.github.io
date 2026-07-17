@@ -12,18 +12,13 @@ function Capstone() {
   return (
     <SectionContainer id="capstone" tone="mid">
       <div className="relative">
-        <SectionHeader
-          label="Capstone"
-          title="Capstone Project"
-          intro="The primary academic achievement of the program."
-          className="mb-16"
-        />
+        <SectionHeader label="Capstone" title="Capstone Project" align="right" className="mb-16" />
 
         {/* Points down at the card below it. */}
         <FloatingNote
           text="Final year project"
           direction="down-left"
-          className="top-0 right-0"
+          className="top-0 left-0"
         />
       </div>
 
@@ -39,7 +34,7 @@ function Capstone() {
 
         <article className="glass rounded-3xl p-7 sm:p-12">
           <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
-            <div className="flex flex-col gap-7">
+            <div className="flex flex-col gap-7 lg:order-2 lg:text-right">
               <div>
                 <p className="mb-3 text-label text-secondary uppercase">{capstone.year}</p>
                 <h3 className="text-3xl font-bold tracking-tight text-balance text-ink sm:text-4xl">
@@ -72,7 +67,7 @@ function Capstone() {
               </div>
             </div>
 
-            <div className="grid gap-4 sm:grid-cols-2">
+            <div className="grid gap-4 sm:grid-cols-2 lg:order-1">
               {capstone.screenshots.map((screenshot) => (
                 <ImagePlaceholder
                   key={screenshot.id}

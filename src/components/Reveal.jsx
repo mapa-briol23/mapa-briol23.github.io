@@ -4,7 +4,15 @@ import { useEffect, useRef, useState } from "react";
  * Fades and lifts its children into view once, the first time they are scrolled to.
  * The transition itself lives in CSS (.reveal); this only flips the class.
  */
-function Reveal({ as: Component = "div", delay = 0, className = "", children, ...props }) {
+/* `from` sets the direction of entry: "up" (default) lifts; "left"/"right" slide
+   in from that side, for headings that align to an edge. */
+const fromClass = {
+  up: "reveal",
+  left: "reveal reveal-left",
+  right: "reveal reveal-right",
+};
+
+function Reveal({ as: Component = "div", from = "up", delay = 0, className = "", children, ...props }) {
   const elementRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
 
@@ -30,7 +38,7 @@ function Reveal({ as: Component = "div", delay = 0, className = "", children, ..
     <Component
       ref={elementRef}
       style={delay ? { transitionDelay: `${delay}ms` } : undefined}
-      className={`reveal ${isVisible ? "is-visible" : ""} ${className}`}
+      className={`${fromClass[from] ?? fromClass.up} ${isVisible ? "is-visible" : ""} ${className}`}
       {...props}
     >
       {children}
