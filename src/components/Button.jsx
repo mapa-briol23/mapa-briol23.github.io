@@ -10,8 +10,10 @@ const displayUtility =
 const variants = {
   primary:
     "bg-primary text-white shadow-[0_8px_24px_-8px_rgba(37,99,235,0.6)] hover:-translate-y-0.5 hover:bg-blue-700 hover:shadow-[0_14px_32px_-8px_rgba(37,99,235,0.7)]",
+  /* An outline, not a plate: the video runs behind this button everywhere it is used,
+     and a filled surface would block the one thing the page is built around. */
   secondary:
-    "border border-white/60 bg-white/70 text-ink backdrop-blur-md hover:-translate-y-0.5 hover:border-accent hover:text-primary hover:shadow-[0_12px_28px_-12px_rgba(37,99,235,0.4)]",
+    "border border-ink/20 bg-transparent text-ink backdrop-blur-md hover:-translate-y-0.5 hover:border-ink/35 hover:bg-ink/5",
 };
 
 function Button({ as: Component = "button", variant = "primary", className = "", children, ...props }) {

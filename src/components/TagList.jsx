@@ -6,7 +6,7 @@ function TagList({ label, items }) {
         {items.map((item) => (
           <li
             key={item}
-            className="rounded-full bg-linear-to-br from-haze to-mist px-3.5 py-1.5 text-sm text-ink/80 ring-1 ring-white/70 ring-inset"
+            className="rounded-full bg-muted/8 px-3.5 py-1.5 text-sm text-muted ring-1 ring-muted/12 ring-inset"
           >
             {item}
           </li>

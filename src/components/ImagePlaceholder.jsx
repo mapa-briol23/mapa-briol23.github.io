@@ -9,9 +9,9 @@ function ImagePlaceholder({ label, className = "" }) {
     <div
       role="img"
       aria-label={`${label} placeholder`}
-      className={`flex flex-col items-center justify-center gap-2.5 border border-white/60 bg-linear-to-br from-haze via-mist to-white text-muted ${className}`}
+      className={`flex flex-col items-center justify-center gap-2.5 border border-dashed border-secondary/12 bg-secondary/4 text-faint ${className}`}
     >
-      <ImageIcon className="h-6 w-6 text-accent" aria-hidden="true" />
+      <ImageIcon className="h-6 w-6" aria-hidden="true" />
       <span className="px-4 text-center text-xs font-medium tracking-wide">{label}</span>
     </div>
   );

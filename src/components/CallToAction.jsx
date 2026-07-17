@@ -2,28 +2,28 @@ import AmbientVideo from "./AmbientVideo";
 import Button from "./Button";
 import Reveal from "./Reveal";
 
-/* A dark tone carries its own scrim: the accent footage is near-black, so the blue
-   wash the light sections use would leave ink type sitting on top of it unreadable.
-   The scrim keeps white type clear across the whole loop, bright frames included. */
+/* Both tones are dark now; what separates them is whose footage they carry. `light`
+   is a thin scrim the page-wide video reads through, like the sections either side.
+   `dark` is an accent band: opaque, so its own loop is the only one showing. */
 const tones = {
   light: {
     overlay: "rgba(37,99,235,0.05)",
     fallback: undefined,
     /* Semi-opaque like the sections either side, so the page-wide video reads through
-       the pause without taking the ink type with it. */
-    surface: "bg-white/80",
+       the pause without taking the type with it. */
+    surface: "bg-abyss/60",
     heading: "text-ink",
-    orb: "from-accent/30 via-secondary/10",
+    orb: "from-secondary/20 via-secondary/8",
   },
   dark: {
-    overlay: "linear-gradient(to bottom, rgba(15,23,42,0.62), rgba(23,37,84,0.68))",
-    /* Stands in for the footage below 768px, so the scrim above lands on dark rather
-       than on the bare page — which is what turns the band muddy instead of deep. */
+    /* No scrim: the footage is the accent, and tinting it is what flattened it. */
+    overlay: undefined,
+    /* Stands in for the footage below 768px, where AmbientVideo declines to load it. */
     fallback: "linear-gradient(to bottom right, #0f172a, #172554 60%, #1e3a8a)",
     /* Opaque: this band runs its own footage, and the page-wide video must not show
        through behind it. Two loops at once is noise, not accent. */
-    surface: "bg-ink",
-    heading: "text-white",
+    surface: "bg-abyss",
+    heading: "text-ink",
     orb: "from-white/10 via-secondary/10",
   },
 };

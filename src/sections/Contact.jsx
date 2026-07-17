@@ -36,11 +36,11 @@ const contactMethods = [
 
 function Contact() {
   return (
-    <SectionContainer id="contact" tone="clear">
+    <SectionContainer id="contact" tone="light">
       {/* A last pool of light under the closing section. */}
       <div
         aria-hidden="true"
-        className="absolute top-1/4 left-1/2 -z-10 h-[32rem] w-[52rem] -translate-x-1/2 rounded-full bg-radial from-accent/25 via-secondary/8 to-transparent blur-3xl"
+        className="absolute top-1/4 left-1/2 -z-10 h-[32rem] w-[52rem] -translate-x-1/2 rounded-full bg-radial from-secondary/18 via-secondary/6 to-transparent blur-3xl"
       />
 
       <div className="relative">
@@ -64,7 +64,7 @@ function Contact() {
               rel={external ? "noreferrer" : undefined}
               className="group flex h-full items-center gap-4"
             >
-              <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-linear-to-br from-haze to-mist text-primary ring-1 ring-white/70 transition duration-300 group-hover:from-accent/30 group-hover:to-secondary/20">
+              <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-secondary/10 text-secondary ring-1 ring-secondary/15 transition duration-300 group-hover:bg-secondary/20">
                 <Icon className="h-5 w-5" aria-hidden="true" />
               </span>
               <span className="min-w-0">

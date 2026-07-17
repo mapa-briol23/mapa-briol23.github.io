@@ -24,14 +24,15 @@ function App() {
           and every section above is semi-opaque so it reads through. It carries no scrim
           of its own — the sections each do that for their own type.
 
-          The fallback is not decoration. The hero is dark and sets white type over this
-          layer, so the layer has to stay dark even on the screens the video skips — below
-          768px, or when the file fails. Without it the hero paints white on pale, and the
-          sections' scrims land on nothing. */}
+          The fallback is not decoration. The hero sets light type straight onto this layer
+          with no scrim of its own, so the layer has to stay dark on the screens the video
+          skips — below 768px, or when the file fails. It is flat rather than a gradient
+          because there is no footage to stand in for there: a lit gradient would read as
+          an effect nobody asked for, where flat reads as the page's own plate. */}
       <AmbientVideo
         src="/videos/hero-bg.mp4"
         preload="auto"
-        fallback="linear-gradient(to bottom right, #0f172a, #172554 60%, #1e3a8a)"
+        fallback="#020617"
         className="fixed inset-0 z-0"
       />
 
@@ -54,13 +55,14 @@ function App() {
           href={profile.github}
           variant="secondary"
           external
+          videoSrc="/videos/section-accent.mp4"
+          tone="dark"
           icon={<GithubIcon className="h-4 w-4" aria-hidden="true" />}
         />
 
         <Capstone />
 
-        {/* The one CTA carrying a video, so the accent lands once and stays an accent.
-            Dark, because the footage is — the one band on the page that inverts. */}
+        {/* Dark, because the footage is — the bands on the page that invert. */}
         <CallToAction
           text="Interested in working together?"
           actionLabel="Download CV"

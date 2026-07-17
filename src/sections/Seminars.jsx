@@ -7,7 +7,7 @@ import { seminars } from "../data/seminars";
 
 function Seminars() {
   return (
-    <SectionContainer id="seminars" tone="tinted">
+    <SectionContainer id="seminars" tone="deep">
       <ConcentricCircles size={440} className="-top-32 -left-48 -z-10 hidden lg:block" />
 
       <SectionHeader

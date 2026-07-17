@@ -12,7 +12,7 @@ const particles = [
 
 function Certificates() {
   return (
-    <SectionContainer id="certificates" tone="clear">
+    <SectionContainer id="certificates" tone="mid">
       <Particles positions={particles} />
 
       <SectionHeader

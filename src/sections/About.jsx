@@ -6,7 +6,7 @@ import { ConcentricCircles, LineAccent } from "../components/Decor";
 /** Text left, an abstract composition of light right. */
 function About() {
   return (
-    <SectionContainer id="about" tone="tinted">
+    <SectionContainer id="about" tone="mid">
       <div className="grid gap-16 lg:grid-cols-[minmax(0,3fr)_minmax(0,2fr)] lg:items-center lg:gap-24">
         <div>
           <SectionHeader label="About" title="About Me" />
@@ -32,12 +32,12 @@ function About() {
         <Reveal delay={120} className="relative hidden aspect-square lg:block">
           <div
             aria-hidden="true"
-            className="absolute inset-[8%] rounded-full bg-radial from-secondary/25 via-accent/10 to-transparent blur-3xl"
+            className="absolute inset-[8%] rounded-full bg-radial from-secondary/20 via-secondary/6 to-transparent blur-3xl"
           />
           <ConcentricCircles size={360} rings={4} className="top-1/2 left-1/2 -translate-1/2" />
           <div
             aria-hidden="true"
-            className="absolute top-1/2 left-1/2 h-32 w-32 -translate-1/2 rounded-full border border-white/80 bg-white/50 shadow-[0_20px_60px_-20px_rgba(37,99,235,0.4)] backdrop-blur-md"
+            className="absolute top-1/2 left-1/2 h-32 w-32 -translate-1/2 rounded-full border border-secondary/12 bg-secondary/3 backdrop-blur-md"
           />
         </Reveal>
       </div>

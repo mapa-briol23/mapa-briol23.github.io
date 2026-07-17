@@ -27,7 +27,7 @@ export function ConcentricCircles({ className = "", rings = 3, size = 420 }) {
         return (
           <div
             key={index}
-            className="absolute top-1/2 left-1/2 rounded-full border border-accent/40"
+            className="absolute top-1/2 left-1/2 rounded-full border border-secondary/10"
             style={{
               width: `${scale * 100}%`,
               height: `${scale * 100}%`,
@@ -65,7 +65,7 @@ export function LineAccent({ className = "" }) {
   return (
     <div
       aria-hidden="true"
-      className={`pointer-events-none h-px bg-linear-to-r from-transparent via-accent/50 to-transparent ${className}`}
+      className={`pointer-events-none h-px bg-linear-to-r from-transparent via-secondary/20 to-transparent ${className}`}
     />
   );
 }

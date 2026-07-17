@@ -36,7 +36,7 @@ function Skills() {
   const bottomRow = skillCategories.slice(3);
 
   return (
-    <SectionContainer id="skills" tone="clear">
+    <SectionContainer id="skills" tone="deep">
       <Particles positions={particles} />
 
       <SectionHeader

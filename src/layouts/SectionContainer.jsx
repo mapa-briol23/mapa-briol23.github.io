@@ -1,16 +1,15 @@
-/* Every tone is semi-opaque: the page-wide video runs behind the whole document, and
-   these are what hold it back. The footage is near-black, so these scrims are load
-   bearing for contrast, not decoration — none may be fully transparent, and 0.8 is
-   the floor at which body copy still clears WCAG AA over the footage's darkest
-   frames. Lowering it makes the page unreadable, not just moody. */
+/* Every tone is a dark scrim over the page-wide video, which runs behind the whole
+   document. The type above is light, so a scrim's job is the reverse of what it was
+   on a light page: it holds the footage's *bright* frames back off the type. The
+   three depths let neighbouring sections separate — the video reads through all of
+   them. Going much below 0.6 lets bokeh drift through the body copy. */
 const tones = {
-  /* The plain band. Lets the video through, and little else. */
-  clear: "bg-white/80",
-  /* A cool tinted mesh over the same scrim, for sections that need to separate from
-     their neighbours. The mesh fades out; the scrim beneath it is what does not. */
-  tinted: "bg-surface/80 bg-linear-to-b from-haze/70 via-mist/50 to-transparent",
-  /* The heaviest plate, for sections that must stay high-contrast. */
-  solid: "bg-white/90",
+  /* The plain band, and the deepest — for sections dense with body copy. */
+  deep: "bg-abyss/70",
+  mid: "bg-abyss/65",
+  /* The thinnest scrim, where the section is mostly headings and the footage can
+     carry more of the band. */
+  light: "bg-abyss/60",
 };
 
 /**
@@ -19,7 +18,7 @@ const tones = {
  *
  * `z-1` lifts every section above the page-wide video, which sits at `z-0`.
  */
-function SectionContainer({ id, tone = "clear", className = "", children }) {
+function SectionContainer({ id, tone = "deep", className = "", children }) {
   return (
     <section
       id={id}

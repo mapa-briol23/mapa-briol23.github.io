@@ -9,7 +9,7 @@ function Projects() {
   const projects = projectGroups.flatMap((group) => group.projects);
 
   return (
-    <SectionContainer id="projects" tone="clear">
+    <SectionContainer id="projects" tone="deep">
       <div className="mb-16 flex flex-wrap items-baseline justify-between gap-4">
         <SectionHeader label="Projects" title="Projects Developed" />
         <Reveal as="span" className="text-label text-muted uppercase">

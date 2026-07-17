@@ -13,7 +13,7 @@ function Navbar() {
   const closeMenu = () => setIsMenuOpen(false);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-white/60 bg-white/70 backdrop-blur-xl">
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-secondary/10 bg-abyss/85 backdrop-blur-xl">
       <nav
         aria-label="Main"
         className="mx-auto flex h-20 max-w-[1200px] items-center justify-between px-6 lg:px-8"
@@ -28,15 +28,15 @@ function Navbar() {
               <a
                 href={`#${item.id}`}
                 aria-current={activeId === item.id ? "true" : undefined}
-                className={`relative text-sm font-medium transition duration-300 hover:text-primary ${
-                  activeId === item.id ? "text-primary" : "text-muted"
+                className={`relative text-sm font-medium transition duration-300 hover:text-ink ${
+                  activeId === item.id ? "text-secondary" : "text-muted"
                 }`}
               >
                 {item.label}
                 {activeId === item.id && (
                   <span
                     aria-hidden="true"
-                    className="absolute -bottom-1.5 left-1/2 h-1 w-1 -translate-x-1/2 rounded-full bg-primary"
+                    className="absolute -bottom-1.5 left-1/2 h-1 w-1 -translate-x-1/2 rounded-full bg-secondary"
                   />
                 )}
               </a>
@@ -62,7 +62,7 @@ function Navbar() {
             aria-expanded={isMenuOpen}
             aria-controls="mobile-menu"
             aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-            className="rounded-full p-2 text-ink transition duration-300 hover:bg-haze lg:hidden"
+            className="rounded-full p-2 text-ink transition duration-300 hover:bg-secondary/10 lg:hidden"
           >
             {isMenuOpen ? (
               <X className="h-5 w-5" aria-hidden="true" />
@@ -74,7 +74,7 @@ function Navbar() {
       </nav>
 
       {isMenuOpen && (
-        <div id="mobile-menu" className="border-t border-white/60 bg-white/90 backdrop-blur-xl lg:hidden">
+        <div id="mobile-menu" className="border-t border-secondary/10 bg-abyss/95 backdrop-blur-xl lg:hidden">
           <ul className="mx-auto flex max-w-[1200px] flex-col px-6 py-4">
             {navItems.map((item) => (
               <li key={item.id}>
@@ -82,8 +82,8 @@ function Navbar() {
                   href={`#${item.id}`}
                   onClick={closeMenu}
                   aria-current={activeId === item.id ? "true" : undefined}
-                  className={`block py-3 text-base font-medium transition duration-200 hover:text-primary ${
-                    activeId === item.id ? "text-primary" : "text-muted"
+                  className={`block py-3 text-base font-medium transition duration-200 hover:text-ink ${
+                    activeId === item.id ? "text-secondary" : "text-muted"
                   }`}
                 >
                   {item.label}

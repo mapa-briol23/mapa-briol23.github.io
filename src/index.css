@@ -8,19 +8,24 @@
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
 
+  /* The page is dark: near-black plate, light type, blue as the only light source.
+     `primary` stays the saturated blue of a filled button; `secondary` is the blue
+     that glows — labels, rules, accents — because #2563eb goes muddy on #020617
+     while #60a5fa lifts off it. */
   --color-primary: #2563eb;
   --color-secondary: #60a5fa;
   --color-accent: #93c5fd;
-  --color-surface: #f8fafc;
-  --color-mist: #f0f4ff;
-  --color-haze: #ebf4ff;
-  --color-line: #e5e7eb;
-  --color-ink: #0f172a;
-  /* Body copy no longer sits on flat white — the sections are semi-opaque over
-     near-black footage, which drags their composited surface down toward #d0d0d0.
-     The old #64748b measured 5:1 on pure white but only ~2.7:1 there, under the
-     WCAG AA floor. This holds ~4.6:1 against the darkest frames. */
-  --color-muted: #475569;
+
+  /* The plate everything composites onto, and the pane the cards are cut from. */
+  --color-abyss: #020617;
+  --color-pane: #0f172a;
+
+  /* Type, brightest to faintest. `ink` is only ever type — the dark plate is
+     `abyss` — so the two never have to mean opposite things at once. */
+  --color-ink: #f1f5f9;
+  --color-muted: #94a3b8;
+  --color-dim: #64748b;
+  --color-faint: #475569;
 
   --text-hero: 4.5rem;
   --text-hero--line-height: 1;
@@ -53,18 +58,47 @@
   }
 
   body {
-    @apply bg-white font-sans text-ink antialiased;
+    /* The plate the fixed video sits on, and what stands in for it below 768px,
+       where the video never loads. Every section scrim above composites onto this,
+       so it has to be the darkest thing on the page. */
+    @apply bg-abyss font-sans text-ink antialiased;
+  }
+
+  /* Dark chrome for the scrollbar, so the gutter does not read as a white seam
+     down the side of a near-black page. */
+  * {
+    scrollbar-color: #1e293b #0f172a;
+  }
+
+  ::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #0f172a;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #1e293b;
+    border-radius: 9999px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #334155;
   }
 }
 
 @layer components {
-  /* Frosted surface shared by every card in the portfolio. */
+  /* Frosted surface shared by every card in the portfolio. The border is what
+     draws it — on a dark page a card has no shadow to sit in, so the edge is a
+     thin blue light rather than a line of dark. */
   .glass {
-    @apply rounded-2xl border border-white/60 bg-white/70 shadow-[0_1px_2px_rgba(15,23,42,0.04),0_8px_24px_-12px_rgba(37,99,235,0.15)] backdrop-blur-xl;
+    @apply rounded-2xl border border-secondary/8 bg-pane/50 backdrop-blur-xl;
   }
 
   .glass-hover {
-    @apply transition duration-300 ease-out hover:-translate-y-1 hover:border-accent/70 hover:shadow-[0_1px_2px_rgba(15,23,42,0.04),0_18px_40px_-16px_rgba(37,99,235,0.35)];
+    @apply transition duration-300 ease-out hover:-translate-y-1 hover:border-secondary/25 hover:shadow-[0_0_20px_rgba(96,165,250,0.06)];
   }
 }
 
@@ -161,7 +195,7 @@
   background-image: linear-gradient(
     90deg,
     transparent 0%,
-    rgba(37, 99, 235, 0.3) 50%,
+    rgba(96, 165, 250, 0.2) 50%,
     transparent 100%
   );
   background-size: 200% 100%;
