@@ -84,8 +84,9 @@
 }
 
 /* ---------------------------------------------------------------------------
-   Atmospheric motion. Animated element budget (12 total, page-wide):
-   1 aurora + 4 hero orbs + 1 capstone aura + 2 dividers + 4 particles.
+   Atmospheric motion. Animated element budget (15 total, page-wide — the cap):
+   1 aurora + 4 hero orbs + 1 capstone aura + 2 dividers + 4 particles
+   + 2 CTA orbs + 1 footer wave.
    Every animation below drives transform/opacity/background-position only.
    --------------------------------------------------------------------------- */
 
@@ -227,7 +228,58 @@
   }
 }
 
-/* 5. Particles — dust rising behind the Skills and Certificates cards. */
+/* 5. CTA orb — a single slow pulse behind each call-to-action. */
+.cta-orb {
+  animation: cta-pulse 14s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+/* The orb is centred with a translate, so the keyframes must carry the centring
+   through — otherwise the animation would drop it and the light would jump. */
+@keyframes cta-pulse {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.75;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.12);
+    opacity: 1;
+  }
+}
+
+/* 6. Footer wave — layered gradients sliding at different speeds. */
+.footer-wave {
+  position: absolute;
+  inset: 0;
+  z-index: -10;
+  pointer-events: none;
+  background:
+    radial-gradient(70% 120% at 15% 100%, var(--color-haze) 0%, transparent 60%),
+    radial-gradient(60% 110% at 55% 100%, #dbeafe 0%, transparent 55%),
+    radial-gradient(70% 120% at 90% 100%, var(--color-mist) 0%, transparent 60%);
+  background-size: 200% 200%;
+  animation: footer-swell 24s ease-in-out infinite;
+  will-change: background-position;
+}
+
+@keyframes footer-swell {
+  0%,
+  100% {
+    background-position:
+      0% 100%,
+      50% 100%,
+      100% 100%;
+  }
+  50% {
+    background-position:
+      30% 100%,
+      70% 100%,
+      60% 100%;
+  }
+}
+
+/* 7. Particles — dust rising behind the Skills and Certificates cards. */
 .particle {
   position: absolute;
   border-radius: 9999px;
@@ -278,8 +330,16 @@
   .orb,
   .shimmer,
   .aura,
-  .particle {
+  .particle,
+  .cta-orb,
+  .footer-wave {
     animation: none !important;
+  }
+
+  /* The pulse carries this element's centring, so removing the animation
+     must not remove the transform that positions it. */
+  .cta-orb {
+    transform: translate(-50%, -50%);
   }
 
   .particle {

@@ -4,6 +4,7 @@ import SectionContainer from "../layouts/SectionContainer";
 import SectionHeader from "../components/SectionHeader";
 import Card from "../components/Card";
 import Reveal from "../components/Reveal";
+import FloatingNote from "../components/FloatingNote";
 import { profile } from "../data/navigation";
 
 const contactMethods = [
@@ -26,7 +27,7 @@ const contactMethods = [
   {
     id: "linkedin",
     label: "LinkedIn",
-    value: "Placeholder LinkedIn Profile",
+    value: "linkedin.com/in/phaula-briol",
     href: profile.linkedin,
     Icon: LinkedinIcon,
     external: true,
@@ -42,12 +43,16 @@ function Contact() {
         className="absolute top-1/4 left-1/2 -z-10 h-[32rem] w-[52rem] -translate-x-1/2 rounded-full bg-radial from-accent/25 via-secondary/8 to-transparent blur-3xl"
       />
 
-      <SectionHeader
-        label="Contact"
-        title="Get in Touch"
-        align="center"
-        className="mb-16"
-      />
+      <div className="relative">
+        <SectionHeader label="Contact" title="Get in Touch" align="center" className="mb-16" />
+
+        {/* Points down at the contact cards. */}
+        <FloatingNote
+          text="Let's connect"
+          direction="down-right"
+          className="top-0 left-0 xl:left-8"
+        />
+      </div>
 
       <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {contactMethods.map(({ id, label, value, href, Icon, external }, index) => (

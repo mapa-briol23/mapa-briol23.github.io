@@ -3,6 +3,7 @@ import SectionContainer from "../layouts/SectionContainer";
 import SectionHeader from "../components/SectionHeader";
 import ImagePlaceholder from "../components/ImagePlaceholder";
 import Reveal from "../components/Reveal";
+import FloatingNote from "../components/FloatingNote";
 import TagList from "../components/TagList";
 import { capstone } from "../data/capstone";
 
@@ -10,12 +11,21 @@ import { capstone } from "../data/capstone";
 function Capstone() {
   return (
     <SectionContainer id="capstone" tone="tinted">
-      <SectionHeader
-        label="Capstone"
-        title="Capstone Project"
-        intro="The primary academic achievement of the program."
-        className="mb-16"
-      />
+      <div className="relative">
+        <SectionHeader
+          label="Capstone"
+          title="Capstone Project"
+          intro="The primary academic achievement of the program."
+          className="mb-16"
+        />
+
+        {/* Points down at the card below it. */}
+        <FloatingNote
+          text="Final year project"
+          direction="down-left"
+          className="top-0 right-0"
+        />
+      </div>
 
       <Reveal className="relative">
         {/* The turning light sits behind the card, not on it. The sweep is a disc that
